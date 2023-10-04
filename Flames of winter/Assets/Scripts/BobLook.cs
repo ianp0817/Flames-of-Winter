@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLook : MonoBehaviour
+public class BobLook : MonoBehaviour
 {
-    public Camera cam;
+    [SerializeField] private Camera cam;
     private float xRotation = 0f;
 
     public float xSensitivity = 30f;

@@ -53,6 +53,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""Button"",
+                    ""id"": ""f0c27d66-621f-43c2-b471-45688dc33283"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""007df794-39cf-4e5e-af34-db00a98cd6ef"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": ""Tap(duration=0.25)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -140,9 +160,112 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""id"": ""20497e9d-f7f9-422e-a0b9-65aa2bf2dd7c"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""a39c58c4-df10-44cd-8838-4bdb3333221b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
                     ""id"": ""9e2dc09a-11e4-4ee0-8cd0-df932bd2564f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""923890f2-60d9-4588-8ac9-43a975bc4417"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""d104bacb-45da-4b27-9c16-dec6a3807375"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""7a9c87c9-478e-40e6-9048-88996bdc937e"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""8c9bfc52-caf7-4b24-afec-e62fa22a7c7c"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""aef0aef3-1be6-433f-be13-ec2939a1e9c3"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""561acb81-a900-4e97-ae44-19975ad1289d"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""7a4c11a5-a01f-499c-9e42-650678a9986b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Global"",
+            ""id"": ""db7e4932-f75b-46f9-bd85-a273768483ae"",
+            ""actions"": [
+                {
+                    ""name"": ""Swap"",
+                    ""type"": ""Button"",
+                    ""id"": ""96576dc8-45b0-4572-9684-c1c9dbb9d559"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -152,12 +275,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""923890f2-60d9-4588-8ac9-43a975bc4417"",
-                    ""path"": """",
-                    ""interactions"": """",
+                    ""id"": ""d8bdac8d-d5f5-4031-8b44-9ad25aa91851"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": ""SlowTap(duration=0.25)"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Swap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -171,9 +294,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Solara_Movement = m_Solara.FindAction("Movement", throwIfNotFound: true);
         m_Solara_Jump = m_Solara.FindAction("Jump", throwIfNotFound: true);
         m_Solara_Look = m_Solara.FindAction("Look", throwIfNotFound: true);
+        m_Solara_Point = m_Solara.FindAction("Point", throwIfNotFound: true);
         // Bob
         m_Bob = asset.FindActionMap("Bob", throwIfNotFound: true);
-        m_Bob_Newaction = m_Bob.FindAction("New action", throwIfNotFound: true);
+        m_Bob_Movement = m_Bob.FindAction("Movement", throwIfNotFound: true);
+        m_Bob_Look = m_Bob.FindAction("Look", throwIfNotFound: true);
+        // Global
+        m_Global = asset.FindActionMap("Global", throwIfNotFound: true);
+        m_Global_Swap = m_Global.FindAction("Swap", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,6 +366,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Solara_Movement;
     private readonly InputAction m_Solara_Jump;
     private readonly InputAction m_Solara_Look;
+    private readonly InputAction m_Solara_Point;
     public struct SolaraActions
     {
         private @PlayerInput m_Wrapper;
@@ -245,6 +374,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Solara_Movement;
         public InputAction @Jump => m_Wrapper.m_Solara_Jump;
         public InputAction @Look => m_Wrapper.m_Solara_Look;
+        public InputAction @Point => m_Wrapper.m_Solara_Point;
         public InputActionMap Get() { return m_Wrapper.m_Solara; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -263,6 +393,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Point.started += instance.OnPoint;
+            @Point.performed += instance.OnPoint;
+            @Point.canceled += instance.OnPoint;
         }
 
         private void UnregisterCallbacks(ISolaraActions instance)
@@ -276,6 +409,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Point.started -= instance.OnPoint;
+            @Point.performed -= instance.OnPoint;
+            @Point.canceled -= instance.OnPoint;
         }
 
         public void RemoveCallbacks(ISolaraActions instance)
@@ -297,12 +433,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     // Bob
     private readonly InputActionMap m_Bob;
     private List<IBobActions> m_BobActionsCallbackInterfaces = new List<IBobActions>();
-    private readonly InputAction m_Bob_Newaction;
+    private readonly InputAction m_Bob_Movement;
+    private readonly InputAction m_Bob_Look;
     public struct BobActions
     {
         private @PlayerInput m_Wrapper;
         public BobActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Bob_Newaction;
+        public InputAction @Movement => m_Wrapper.m_Bob_Movement;
+        public InputAction @Look => m_Wrapper.m_Bob_Look;
         public InputActionMap Get() { return m_Wrapper.m_Bob; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -312,16 +450,22 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_BobActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_BobActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
         }
 
         private void UnregisterCallbacks(IBobActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
         }
 
         public void RemoveCallbacks(IBobActions instance)
@@ -339,14 +483,66 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public BobActions @Bob => new BobActions(this);
+
+    // Global
+    private readonly InputActionMap m_Global;
+    private List<IGlobalActions> m_GlobalActionsCallbackInterfaces = new List<IGlobalActions>();
+    private readonly InputAction m_Global_Swap;
+    public struct GlobalActions
+    {
+        private @PlayerInput m_Wrapper;
+        public GlobalActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Swap => m_Wrapper.m_Global_Swap;
+        public InputActionMap Get() { return m_Wrapper.m_Global; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GlobalActions set) { return set.Get(); }
+        public void AddCallbacks(IGlobalActions instance)
+        {
+            if (instance == null || m_Wrapper.m_GlobalActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GlobalActionsCallbackInterfaces.Add(instance);
+            @Swap.started += instance.OnSwap;
+            @Swap.performed += instance.OnSwap;
+            @Swap.canceled += instance.OnSwap;
+        }
+
+        private void UnregisterCallbacks(IGlobalActions instance)
+        {
+            @Swap.started -= instance.OnSwap;
+            @Swap.performed -= instance.OnSwap;
+            @Swap.canceled -= instance.OnSwap;
+        }
+
+        public void RemoveCallbacks(IGlobalActions instance)
+        {
+            if (m_Wrapper.m_GlobalActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGlobalActions instance)
+        {
+            foreach (var item in m_Wrapper.m_GlobalActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GlobalActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GlobalActions @Global => new GlobalActions(this);
     public interface ISolaraActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
     }
     public interface IBobActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+    }
+    public interface IGlobalActions
+    {
+        void OnSwap(InputAction.CallbackContext context);
     }
 }

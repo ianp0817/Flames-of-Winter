@@ -104,9 +104,9 @@ GameObject:
   - component: {fileID: 6069035194179538425}
   - component: {fileID: 7401643255097700325}
   - component: {fileID: 3943062193493312647}
-  - component: {fileID: 1226160393820826154}
   - component: {fileID: 6206865106005265474}
   - component: {fileID: 329246143661677469}
+  - component: {fileID: 6733530898665850587}
   m_Layer: 0
   m_Name: Solara
   m_TagString: Player
@@ -206,18 +206,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1226160393820826154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4744526317606854001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 314e646807e1f4149b9bddaab4abef85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6206865106005265474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,3 +236,16 @@ MonoBehaviour:
   cam: {fileID: 2257204943566868292}
   xSensitivity: 30
   ySensitivity: 30
+--- !u!114 &6733530898665850587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4744526317606854001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfb3cf8bbc050846a0f296b4ee2650a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 2257204943566868292}

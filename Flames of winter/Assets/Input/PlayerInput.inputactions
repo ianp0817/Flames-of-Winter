@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Point",
+                    "type": "Button",
+                    "id": "f0c27d66-621f-43c2-b471-45688dc33283",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -110,6 +119,17 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "007df794-39cf-4e5e-af34-db00a98cd6ef",
+                    "path": "<Keyboard>/f",
+                    "interactions": "Tap(duration=0.25)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -118,9 +138,112 @@
             "id": "20497e9d-f7f9-422e-a0b9-65aa2bf2dd7c",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "a39c58c4-df10-44cd-8838-4bdb3333221b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
                     "id": "9e2dc09a-11e4-4ee0-8cd0-df932bd2564f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "923890f2-60d9-4588-8ac9-43a975bc4417",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "d104bacb-45da-4b27-9c16-dec6a3807375",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "7a9c87c9-478e-40e6-9048-88996bdc937e",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "8c9bfc52-caf7-4b24-afec-e62fa22a7c7c",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "WASD",
+                    "id": "aef0aef3-1be6-433f-be13-ec2939a1e9c3",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "561acb81-a900-4e97-ae44-19975ad1289d",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "7a4c11a5-a01f-499c-9e42-650678a9986b",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Global",
+            "id": "db7e4932-f75b-46f9-bd85-a273768483ae",
+            "actions": [
+                {
+                    "name": "Swap",
+                    "type": "Button",
+                    "id": "96576dc8-45b0-4572-9684-c1c9dbb9d559",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -130,12 +253,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "923890f2-60d9-4588-8ac9-43a975bc4417",
-                    "path": "",
-                    "interactions": "",
+                    "id": "d8bdac8d-d5f5-4031-8b44-9ad25aa91851",
+                    "path": "<Keyboard>/f",
+                    "interactions": "SlowTap(duration=0.25)",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Swap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
