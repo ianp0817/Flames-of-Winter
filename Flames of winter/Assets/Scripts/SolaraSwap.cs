@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SolaraOther : MonoBehaviour
+public class SolaraSwap : MonoBehaviour
 {
     [SerializeField] private Camera cam;
 
@@ -11,7 +11,7 @@ public class SolaraOther : MonoBehaviour
         if (bob == null)
             return SwapResult.None;
 
-        if (!Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out RaycastHit hit))
+        if (!Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out RaycastHit hit, Mathf.Infinity, ~(1<<2)))
             return SwapResult.Follow;
 
         if (bob.Equals(hit.collider.gameObject))

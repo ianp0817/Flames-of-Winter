@@ -16,17 +16,18 @@ public class InputManager : MonoBehaviour
     private bool solaraExists;
     private bool bobExists;
 
+    [SerializeField] private TransitionHandler transitionHandler;
+
     private enum Player { Solara, Bob }
     [SerializeField] private Player player = Player.Solara;
 
     private SolaraMotor solaraMotor;
     private SolaraLook solaraLook;
-    private SolaraOther solaraOther;
+    private SolaraSwap solaraSwap;
     private BobMotor bobMotor;
     private BobLook bobLook;
-    private BobOther bobOther;
+    private BobSwap bobSwap;
 
-    // Start is called before the first frame update
     void Awake()
     {
         playerInput = new PlayerInput();
@@ -41,13 +42,13 @@ public class InputManager : MonoBehaviour
         {
             solaraMotor = solaraObject.GetComponent<SolaraMotor>();
             solaraLook = solaraObject.GetComponent<SolaraLook>();
-            solaraOther = solaraObject.GetComponent<SolaraOther>();
+            solaraSwap = solaraObject.GetComponent<SolaraSwap>();
         }
         if (bobExists)
         {
             bobMotor = bobObject.GetComponent<BobMotor>();
             bobLook = bobObject.GetComponent<BobLook>();
-            bobOther = bobObject.GetComponent<BobOther>();
+            bobSwap = bobObject.GetComponent<BobSwap>();
         }
 
         if (solaraExists && bobExists)
@@ -64,6 +65,20 @@ public class InputManager : MonoBehaviour
             if (solaraExists)
                 solaraCamera.SetActive(false);
         }
+
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void Start()
+    {
+        transitionHandler.TransitionIn(() =>
+        {
+            global.Enable();
+            if (player == Player.Solara)
+                solara.Enable();
+            else
+                bob.Enable();
+        });
     }
 
     private void Swap()
@@ -73,7 +88,7 @@ public class InputManager : MonoBehaviour
 
         if (player == Player.Solara)
         {
-            SwapResult result = solaraOther.Swap(bobObject);
+            SwapResult result = solaraSwap.Swap(bobObject);
             if (result == SwapResult.Swap)
             {
                 solaraCamera.SetActive(false);
@@ -85,7 +100,7 @@ public class InputManager : MonoBehaviour
         }
         else
         {
-            SwapResult result = bobOther.Swap(solaraObject);
+            SwapResult result = bobSwap.Swap(solaraObject);
             if (result == SwapResult.Swap)
             {
                 bobCamera.SetActive(false);
@@ -121,15 +136,6 @@ public class InputManager : MonoBehaviour
             solaraLook.ProcessLook(solara.Look.ReadValue<Vector2>());
         else
             bobLook.ProcessLook(bob.Look.ReadValue<Vector2>());
-    }
-
-    private void OnEnable()
-    {
-        global.Enable();
-        if (player == Player.Solara)
-            solara.Enable();
-        else
-            bob.Enable();
     }
 
     private void OnDisable()

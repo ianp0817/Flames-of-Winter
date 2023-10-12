@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6733530898665850587}
   m_Layer: 0
   m_Name: Solara
-  m_TagString: Player
+  m_TagString: Solara
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
