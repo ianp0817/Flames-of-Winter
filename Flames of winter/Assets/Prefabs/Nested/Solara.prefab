@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7102725494423328477}
   - component: {fileID: 2257204943566868292}
   - component: {fileID: 3704861544665757500}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Solara Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 6206865106005265474}
   - component: {fileID: 329246143661677469}
   - component: {fileID: 6733530898665850587}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Solara
   m_TagString: Solara
   m_Icon: {fileID: 0}

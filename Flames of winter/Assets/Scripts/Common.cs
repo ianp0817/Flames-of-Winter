@@ -1,1 +1,1 @@
-public enum SwapResult { Swap, Follow, None }
+public enum SwapResult { Swap, Follow, None };

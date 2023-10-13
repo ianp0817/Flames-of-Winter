@@ -27,6 +27,7 @@ public class InputManager : MonoBehaviour
     private BobMotor bobMotor;
     private BobLook bobLook;
     private BobSwap bobSwap;
+    private BobPathfind bobPathfind;
 
     void Awake()
     {
@@ -49,10 +50,14 @@ public class InputManager : MonoBehaviour
             bobMotor = bobObject.GetComponent<BobMotor>();
             bobLook = bobObject.GetComponent<BobLook>();
             bobSwap = bobObject.GetComponent<BobSwap>();
+            bobPathfind = bobObject.GetComponent<BobPathfind>();
         }
 
         if (solaraExists && bobExists)
+        {
             global.Swap.performed += ctx => Swap();
+            solara.Point.performed += ctx => Point();
+        }
 
         if (player == Player.Solara)
         {
@@ -91,11 +96,16 @@ public class InputManager : MonoBehaviour
             SwapResult result = solaraSwap.Swap(bobObject);
             if (result == SwapResult.Swap)
             {
+                bobPathfind.StopPathing();
                 solaraCamera.SetActive(false);
                 bobCamera.SetActive(true);
                 solara.Disable();
                 bob.Enable();
                 player = Player.Bob;
+            }
+            else if (result == SwapResult.Follow)
+            {
+                bobPathfind.FollowTarget(solaraObject.transform);
             }
         }
         else
@@ -112,6 +122,13 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    private void Point()
+    {
+        bool success = solaraSwap.Point(out Vector3 location);
+        if (success)
+            bobPathfind.PathTo(location);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -119,7 +136,7 @@ public class InputManager : MonoBehaviour
         if (player == Player.Solara)
         {
             solaraMotor.ProcessMove(solara.Movement.ReadValue<Vector2>());
-            if (bobExists)
+            if (bobExists && !bobPathfind.IsPathing())
                 bobMotor.ProcessMove(Vector2.zero);
         }
         else

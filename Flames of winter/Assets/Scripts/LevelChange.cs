@@ -50,7 +50,7 @@ public class LevelChange : MonoBehaviour
 
     private void tryChange()
     {
-        if (!needsSolara || containsSolara && !needsBob || containsBob)
+        if ((!needsSolara || containsSolara) && (!needsBob || containsBob))
         {
             transitionHandler.TransitionOut(() =>
                 SceneManager.LoadScene(targetScene)
