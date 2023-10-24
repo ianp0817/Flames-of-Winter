@@ -24,7 +24,7 @@ public class SolaraSwap : MonoBehaviour
     {
         location = default;
         bool success = Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward),
-            out RaycastHit hit, Mathf.Infinity, ~((1 << 2) & (1 << 3)));
+            out RaycastHit hit, Mathf.Infinity, ~((1 << 2) | (1 << 3)));
 
         if (success)
             location = hit.point;

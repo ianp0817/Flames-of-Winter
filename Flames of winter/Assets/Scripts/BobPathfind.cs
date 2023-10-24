@@ -89,4 +89,9 @@ public class BobPathfind : MonoBehaviour
     {
         return path;
     }
+
+    public bool IsFollowing()
+    {
+        return path && target;
+    }
 }

@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 2
   m_Name: Level Trigger
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -66,3 +66,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637859068671c644599f902b8643f9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetScene: 

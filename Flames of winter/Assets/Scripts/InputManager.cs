@@ -105,7 +105,10 @@ public class InputManager : MonoBehaviour
             }
             else if (result == SwapResult.Follow)
             {
-                bobPathfind.FollowTarget(solaraObject.transform);
+                if (bobPathfind.IsFollowing())
+                    bobPathfind.StopPathing();
+                else
+                    bobPathfind.FollowTarget(solaraObject.transform);
             }
         }
         else
