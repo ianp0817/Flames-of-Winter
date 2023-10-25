@@ -176,6 +176,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Grab"",
+                    ""type"": ""Button"",
+                    ""id"": ""fa388187-8ffa-45b1-9358-b5359531b690"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -255,6 +264,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c3ee9f63-a6aa-4ef1-b0b0-5f428fcf6b15"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -319,6 +339,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Bob = asset.FindActionMap("Bob", throwIfNotFound: true);
         m_Bob_Movement = m_Bob.FindAction("Movement", throwIfNotFound: true);
         m_Bob_Look = m_Bob.FindAction("Look", throwIfNotFound: true);
+        m_Bob_Grab = m_Bob.FindAction("Grab", throwIfNotFound: true);
         // Global
         m_Global = asset.FindActionMap("Global", throwIfNotFound: true);
         m_Global_Swap = m_Global.FindAction("Swap", throwIfNotFound: true);
@@ -456,12 +477,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IBobActions> m_BobActionsCallbackInterfaces = new List<IBobActions>();
     private readonly InputAction m_Bob_Movement;
     private readonly InputAction m_Bob_Look;
+    private readonly InputAction m_Bob_Grab;
     public struct BobActions
     {
         private @PlayerInput m_Wrapper;
         public BobActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Bob_Movement;
         public InputAction @Look => m_Wrapper.m_Bob_Look;
+        public InputAction @Grab => m_Wrapper.m_Bob_Grab;
         public InputActionMap Get() { return m_Wrapper.m_Bob; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -477,6 +500,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Grab.started += instance.OnGrab;
+            @Grab.performed += instance.OnGrab;
+            @Grab.canceled += instance.OnGrab;
         }
 
         private void UnregisterCallbacks(IBobActions instance)
@@ -487,6 +513,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Grab.started -= instance.OnGrab;
+            @Grab.performed -= instance.OnGrab;
+            @Grab.canceled -= instance.OnGrab;
         }
 
         public void RemoveCallbacks(IBobActions instance)
@@ -569,6 +598,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnGrab(InputAction.CallbackContext context);
     }
     public interface IGlobalActions
     {

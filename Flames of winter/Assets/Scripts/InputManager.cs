@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour
     private BobLook bobLook;
     private BobSwap bobSwap;
     private BobPathfind bobPathfind;
+    private PickupController bobPickup;
 
     void Awake()
     {
@@ -45,6 +46,8 @@ public class InputManager : MonoBehaviour
             solaraMotor = solaraObject.GetComponent<SolaraMotor>();
             solaraLook = solaraObject.GetComponent<SolaraLook>();
             solaraSwap = solaraObject.GetComponent<SolaraSwap>();
+
+            solara.Jump.performed += ctx => solaraMotor.Jump();
         }
         if (bobExists)
         {
@@ -52,6 +55,9 @@ public class InputManager : MonoBehaviour
             bobLook = bobObject.GetComponent<BobLook>();
             bobSwap = bobObject.GetComponent<BobSwap>();
             bobPathfind = bobObject.GetComponent<BobPathfind>();
+            bobPickup = bobObject.GetComponentInChildren<PickupController>();
+
+            bob.Grab.performed += ctx => bobPickup.Grab();
         }
 
         if (solaraExists && bobExists)
@@ -63,7 +69,6 @@ public class InputManager : MonoBehaviour
 
         if (player == Player.Solara)
         {
-            solara.Jump.performed += ctx => solaraMotor.Jump();
             if (bobExists)
                 bobCamera.SetActive(false);
         }
@@ -118,6 +123,7 @@ public class InputManager : MonoBehaviour
             SwapResult result = bobSwap.Swap(solaraObject);
             if (result == SwapResult.Swap)
             {
+                bobPickup.Drop();
                 bobCamera.SetActive(false);
                 solaraCamera.SetActive(true);
                 bob.Disable();
@@ -164,7 +170,10 @@ public class InputManager : MonoBehaviour
         if (player == Player.Solara)
             solaraLook.ProcessLook(solara.Look.ReadValue<Vector2>());
         else
+        {
             bobLook.ProcessLook(bob.Look.ReadValue<Vector2>());
+            bobPickup.ProcessHold();
+        }
     }
 
     private void OnDisable()
