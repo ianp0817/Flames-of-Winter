@@ -270,6 +270,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""ccbf3096-388a-4696-92df-5098cafd01a7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -281,6 +290,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7dec064f-e616-42ef-9dd3-b3b39bc43172"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -302,6 +322,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Global
         m_Global = asset.FindActionMap("Global", throwIfNotFound: true);
         m_Global_Swap = m_Global.FindAction("Swap", throwIfNotFound: true);
+        m_Global_Reset = m_Global.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -488,11 +509,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Global;
     private List<IGlobalActions> m_GlobalActionsCallbackInterfaces = new List<IGlobalActions>();
     private readonly InputAction m_Global_Swap;
+    private readonly InputAction m_Global_Reset;
     public struct GlobalActions
     {
         private @PlayerInput m_Wrapper;
         public GlobalActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Swap => m_Wrapper.m_Global_Swap;
+        public InputAction @Reset => m_Wrapper.m_Global_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Global; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -505,6 +528,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Swap.started += instance.OnSwap;
             @Swap.performed += instance.OnSwap;
             @Swap.canceled += instance.OnSwap;
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
         }
 
         private void UnregisterCallbacks(IGlobalActions instance)
@@ -512,6 +538,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Swap.started -= instance.OnSwap;
             @Swap.performed -= instance.OnSwap;
             @Swap.canceled -= instance.OnSwap;
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
         }
 
         public void RemoveCallbacks(IGlobalActions instance)
@@ -544,5 +573,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface IGlobalActions
     {
         void OnSwap(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }

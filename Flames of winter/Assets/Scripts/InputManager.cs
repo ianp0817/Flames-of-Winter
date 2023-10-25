@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
@@ -56,6 +57,7 @@ public class InputManager : MonoBehaviour
         if (solaraExists && bobExists)
         {
             global.Swap.performed += ctx => Swap();
+            global.Reset.performed += ctx => Reset();
             solara.Point.performed += ctx => Point();
         }
 
@@ -123,6 +125,13 @@ public class InputManager : MonoBehaviour
                 player = Player.Solara;
             }
         }
+    }
+
+    private void Reset()
+    {
+        transitionHandler.TransitionOut(() =>
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name)
+        );
     }
 
     private void Point()
