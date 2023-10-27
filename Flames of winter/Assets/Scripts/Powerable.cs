@@ -27,11 +27,14 @@ public abstract class Powerable : MonoBehaviour
      */
     public void SetPower(bool power)
     {
-        powered = power;
-        if (powered)
-            OnPowered();
-        else
-            OnNotPowered();
+        if (powered != power)
+        {
+            powered = power;
+            if (powered)
+                OnPowered();
+            else
+                OnNotPowered();
+        }
     }
 
     /**

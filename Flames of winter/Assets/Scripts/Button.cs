@@ -7,7 +7,7 @@ public class SolaraButton : Interactable
 {
     [SerializeField] ParentConstraint button;
     [SerializeField] float moveThreshold = 0.1f;
-    [SerializeField] Powerable target;
+    [SerializeField] List<Powerable> targets;
     private Vector3 defaultPos;
     private GameObject interactor;
     private Vector3 interactPosition;
@@ -30,7 +30,8 @@ public class SolaraButton : Interactable
     {
         this.interactor = interactor;
         interactPosition = interactor.transform.position;
-        target?.SetPower(true);
+        foreach (Powerable target in targets)
+            target.SetPower(true);
 
         button.SetTranslationOffset(0, Vector3.zero);
     }
@@ -38,7 +39,8 @@ public class SolaraButton : Interactable
     private void Release()
     {
         interactor = null;
-        target?.SetPower(false);
+        foreach (Powerable target in targets)
+            target.SetPower(false);
 
         button.SetTranslationOffset(0, defaultPos);
     }
