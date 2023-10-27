@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Solara
   - Bob
+  - SolaraInteractable
+  - BobInteractable
   layers:
   - Default
   - TransparentFX

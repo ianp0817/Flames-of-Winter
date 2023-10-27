@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7102725494423328477}
   - component: {fileID: 2257204943566868292}
   - component: {fileID: 3704861544665757500}
+  - component: {fileID: 6781383430816388598}
   m_Layer: 3
   m_Name: Solara Camera
   m_TagString: MainCamera
@@ -92,6 +93,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2577631189981080307}
   m_Enabled: 1
+--- !u!114 &6781383430816388598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577631189981080307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b304168a867c4f6459c24862a081ea01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solaraCamera: {fileID: 2257204943566868292}
+  interactRange: 2
 --- !u!1 &4744526317606854001
 GameObject:
   m_ObjectHideFlags: 0

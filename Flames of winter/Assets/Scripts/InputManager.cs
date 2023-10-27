@@ -25,10 +25,12 @@ public class InputManager : MonoBehaviour
     private SolaraMotor solaraMotor;
     private SolaraLook solaraLook;
     private SolaraSwap solaraSwap;
+    private SolaraInteract solaraInteract;
     private BobMotor bobMotor;
     private BobLook bobLook;
     private BobSwap bobSwap;
     private BobPathfind bobPathfind;
+    private BobInteract bobInteract;
     private PickupController bobPickup;
 
     void Awake()
@@ -46,8 +48,10 @@ public class InputManager : MonoBehaviour
             solaraMotor = solaraObject.GetComponent<SolaraMotor>();
             solaraLook = solaraObject.GetComponent<SolaraLook>();
             solaraSwap = solaraObject.GetComponent<SolaraSwap>();
+            solaraInteract = solaraObject.GetComponentInChildren<SolaraInteract>();
 
             solara.Jump.performed += ctx => solaraMotor.Jump();
+            solara.Interact.performed += ctx => solaraInteract.Interact();
         }
         if (bobExists)
         {
@@ -55,8 +59,10 @@ public class InputManager : MonoBehaviour
             bobLook = bobObject.GetComponent<BobLook>();
             bobSwap = bobObject.GetComponent<BobSwap>();
             bobPathfind = bobObject.GetComponent<BobPathfind>();
+            bobInteract = bobObject.GetComponentInChildren<BobInteract>();
             bobPickup = bobObject.GetComponentInChildren<PickupController>();
 
+            bob.Interact.performed += ctx => bobInteract.Interact();
             bob.Grab.performed += ctx => bobPickup.Grab();
         }
 
