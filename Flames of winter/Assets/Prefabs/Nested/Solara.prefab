@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b304168a867c4f6459c24862a081ea01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solaraCamera: {fileID: 2257204943566868292}
   interactRange: 2
 --- !u!1 &4744526317606854001
 GameObject:
@@ -234,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  gravity: -9.8
+  gravity: -17
   jumpHeight: 3
 --- !u!114 &329246143661677469
 MonoBehaviour:
