@@ -260,8 +260,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 7229444878736688322}
-  xSensitivity: 30
-  ySensitivity: 30
+  xSensitivity: 15
+  ySensitivity: 15
 --- !u!114 &5171181225302427294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdTarget: {fileID: 5810110313305407099}
   pickupRange: 2
-  pickupForce: 10
+  pickupForce: 50
 --- !u!114 &9195590986786470396
 MonoBehaviour:
   m_ObjectHideFlags: 0
