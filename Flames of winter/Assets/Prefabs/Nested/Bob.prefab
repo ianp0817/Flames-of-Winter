@@ -220,7 +220,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 4068197969525753735}
   - component: {fileID: 2245266386860816896}
   - component: {fileID: 9195590986786470396}
+  - component: {fileID: 4615196922009664404}
   m_Layer: 3
   m_Name: Bob Camera
   m_TagString: MainCamera
@@ -482,3 +483,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 2
+--- !u!114 &4615196922009664404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110337245824936747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edb19541a837e4148a0737bca2d77f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasCannon: 0
+  cooldown: 1
+  power: 10
+  offset: 0.25
+  projectilePrefab: {fileID: 4429720465680649880, guid: 709dd5fbbc6c32343a8983621b513bbf, type: 3}
+  bob: {fileID: 3181171425951476336}

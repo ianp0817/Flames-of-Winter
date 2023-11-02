@@ -71,6 +71,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e1cd112-b26c-43a1-962d-a345591761c9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fc5bdcc-bf09-4dfe-a051-45c0def2be98"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -210,6 +230,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""cadf4cfc-76a3-4248-afe9-f0f62a3d049d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4c33151-8da5-4d04-b2b8-fa434868d6b5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -315,6 +344,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8700cdff-ee61-4e0a-bd07-59de8f28a21e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -376,12 +416,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Solara_Look = m_Solara.FindAction("Look", throwIfNotFound: true);
         m_Solara_Point = m_Solara.FindAction("Point", throwIfNotFound: true);
         m_Solara_Interact = m_Solara.FindAction("Interact", throwIfNotFound: true);
+        m_Solara_Shoot = m_Solara.FindAction("Shoot", throwIfNotFound: true);
         // Bob
         m_Bob = asset.FindActionMap("Bob", throwIfNotFound: true);
         m_Bob_Movement = m_Bob.FindAction("Movement", throwIfNotFound: true);
         m_Bob_Look = m_Bob.FindAction("Look", throwIfNotFound: true);
         m_Bob_Grab = m_Bob.FindAction("Grab", throwIfNotFound: true);
         m_Bob_Interact = m_Bob.FindAction("Interact", throwIfNotFound: true);
+        m_Bob_Shoot = m_Bob.FindAction("Shoot", throwIfNotFound: true);
         // Global
         m_Global = asset.FindActionMap("Global", throwIfNotFound: true);
         m_Global_Swap = m_Global.FindAction("Swap", throwIfNotFound: true);
@@ -452,6 +494,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Solara_Look;
     private readonly InputAction m_Solara_Point;
     private readonly InputAction m_Solara_Interact;
+    private readonly InputAction m_Solara_Shoot;
     public struct SolaraActions
     {
         private @PlayerInput m_Wrapper;
@@ -461,6 +504,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Solara_Look;
         public InputAction @Point => m_Wrapper.m_Solara_Point;
         public InputAction @Interact => m_Wrapper.m_Solara_Interact;
+        public InputAction @Shoot => m_Wrapper.m_Solara_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Solara; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -485,6 +529,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
         }
 
         private void UnregisterCallbacks(ISolaraActions instance)
@@ -504,6 +551,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
         }
 
         public void RemoveCallbacks(ISolaraActions instance)
@@ -529,6 +579,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Bob_Look;
     private readonly InputAction m_Bob_Grab;
     private readonly InputAction m_Bob_Interact;
+    private readonly InputAction m_Bob_Shoot;
     public struct BobActions
     {
         private @PlayerInput m_Wrapper;
@@ -537,6 +588,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Bob_Look;
         public InputAction @Grab => m_Wrapper.m_Bob_Grab;
         public InputAction @Interact => m_Wrapper.m_Bob_Interact;
+        public InputAction @Shoot => m_Wrapper.m_Bob_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Bob; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -558,6 +610,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
         }
 
         private void UnregisterCallbacks(IBobActions instance)
@@ -574,6 +629,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
         }
 
         public void RemoveCallbacks(IBobActions instance)
@@ -652,6 +710,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
     public interface IBobActions
     {
@@ -659,6 +718,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
     public interface IGlobalActions
     {

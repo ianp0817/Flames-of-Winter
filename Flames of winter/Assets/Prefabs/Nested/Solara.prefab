@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2257204943566868292}
   - component: {fileID: 3704861544665757500}
   - component: {fileID: 6781383430816388598}
+  - component: {fileID: 1976879577643467348}
   m_Layer: 3
   m_Name: Solara Camera
   m_TagString: MainCamera
@@ -106,6 +107,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 2
+--- !u!114 &1976879577643467348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577631189981080307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4125a669b64844f43903beb0916d96a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasCannon: 1
+  cooldown: 1
+  power: 10
+  offset: 0.25
+  projectilePrefab: {fileID: 4429720465680649880, guid: 299a1032033a43f4a86a1ba6630ceaff, type: 3}
+  solara: {fileID: 4744526317606854001}
 --- !u!1 &4744526317606854001
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +226,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
