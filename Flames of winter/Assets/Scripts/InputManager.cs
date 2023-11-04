@@ -145,7 +145,7 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private void Reset()
+    public void Reset()
     {
         transitionHandler.TransitionOut(() =>
             SceneManager.LoadScene(SceneManager.GetActiveScene().name)

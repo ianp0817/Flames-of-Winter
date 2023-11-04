@@ -10,6 +10,7 @@ public class PickupController : MonoBehaviour
 
     [SerializeField] private float pickupRange = 2.0f;
     [SerializeField] private float pickupForce = 10.0f;
+    [SerializeField] private float dropDistance = 1.0f;
 
     public void Grab()
     {
@@ -51,7 +52,11 @@ public class PickupController : MonoBehaviour
         if (heldObject && Vector3.Distance(heldObject.transform.position, holdTarget.position) > 0.1f)
         {
             Vector3 moveDirection = holdTarget.position - heldObject.transform.position;
-            heldObjectRB.AddForce(moveDirection * pickupForce);
+
+            if (moveDirection.magnitude >= dropDistance)
+                Drop();
+            else
+                heldObjectRB.AddForce(moveDirection * pickupForce - heldObjectRB.GetAccumulatedForce());
         }
     }
 }

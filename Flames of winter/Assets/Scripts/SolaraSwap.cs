@@ -11,7 +11,7 @@ public class SolaraSwap : MonoBehaviour
         if (bob == null)
             return SwapResult.None;
 
-        if (!Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out RaycastHit hit, Mathf.Infinity, ~(1 << 2)))
+        if (!Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out RaycastHit hit, Mathf.Infinity, ~((1 << 2) | (1 << 4))))
             return SwapResult.Follow;
 
         if (bob.Equals(hit.collider.gameObject))
@@ -24,7 +24,7 @@ public class SolaraSwap : MonoBehaviour
     {
         location = default;
         bool success = Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward),
-            out RaycastHit hit, Mathf.Infinity, ~((1 << 2) | (1 << 3)));
+            out RaycastHit hit, Mathf.Infinity, ~((1 << 2) | (1 << 3) | (1 << 4)));
 
         if (success)
             location = hit.point;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3704861544665757500}
   - component: {fileID: 6781383430816388598}
   - component: {fileID: 1976879577643467348}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Solara Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 6206865106005265474}
   - component: {fileID: 329246143661677469}
   - component: {fileID: 6733530898665850587}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Solara
   m_TagString: Solara
   m_Icon: {fileID: 0}
