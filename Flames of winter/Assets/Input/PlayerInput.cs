@@ -326,7 +326,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c3ee9f63-a6aa-4ef1-b0b0-5f428fcf6b15"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -359,7 +359,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Global"",
+            ""name"": ""Both"",
             ""id"": ""db7e4932-f75b-46f9-bd85-a273768483ae"",
             ""actions"": [
                 {
@@ -424,10 +424,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Bob_Grab = m_Bob.FindAction("Grab", throwIfNotFound: true);
         m_Bob_Interact = m_Bob.FindAction("Interact", throwIfNotFound: true);
         m_Bob_Shoot = m_Bob.FindAction("Shoot", throwIfNotFound: true);
-        // Global
-        m_Global = asset.FindActionMap("Global", throwIfNotFound: true);
-        m_Global_Swap = m_Global.FindAction("Swap", throwIfNotFound: true);
-        m_Global_Reset = m_Global.FindAction("Reset", throwIfNotFound: true);
+        // Both
+        m_Both = asset.FindActionMap("Both", throwIfNotFound: true);
+        m_Both_Swap = m_Both.FindAction("Swap", throwIfNotFound: true);
+        m_Both_Reset = m_Both.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -650,26 +650,26 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     }
     public BobActions @Bob => new BobActions(this);
 
-    // Global
-    private readonly InputActionMap m_Global;
-    private List<IGlobalActions> m_GlobalActionsCallbackInterfaces = new List<IGlobalActions>();
-    private readonly InputAction m_Global_Swap;
-    private readonly InputAction m_Global_Reset;
-    public struct GlobalActions
+    // Both
+    private readonly InputActionMap m_Both;
+    private List<IBothActions> m_BothActionsCallbackInterfaces = new List<IBothActions>();
+    private readonly InputAction m_Both_Swap;
+    private readonly InputAction m_Both_Reset;
+    public struct BothActions
     {
         private @PlayerInput m_Wrapper;
-        public GlobalActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Swap => m_Wrapper.m_Global_Swap;
-        public InputAction @Reset => m_Wrapper.m_Global_Reset;
-        public InputActionMap Get() { return m_Wrapper.m_Global; }
+        public BothActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Swap => m_Wrapper.m_Both_Swap;
+        public InputAction @Reset => m_Wrapper.m_Both_Reset;
+        public InputActionMap Get() { return m_Wrapper.m_Both; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GlobalActions set) { return set.Get(); }
-        public void AddCallbacks(IGlobalActions instance)
+        public static implicit operator InputActionMap(BothActions set) { return set.Get(); }
+        public void AddCallbacks(IBothActions instance)
         {
-            if (instance == null || m_Wrapper.m_GlobalActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_GlobalActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_BothActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_BothActionsCallbackInterfaces.Add(instance);
             @Swap.started += instance.OnSwap;
             @Swap.performed += instance.OnSwap;
             @Swap.canceled += instance.OnSwap;
@@ -678,7 +678,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Reset.canceled += instance.OnReset;
         }
 
-        private void UnregisterCallbacks(IGlobalActions instance)
+        private void UnregisterCallbacks(IBothActions instance)
         {
             @Swap.started -= instance.OnSwap;
             @Swap.performed -= instance.OnSwap;
@@ -688,21 +688,21 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Reset.canceled -= instance.OnReset;
         }
 
-        public void RemoveCallbacks(IGlobalActions instance)
+        public void RemoveCallbacks(IBothActions instance)
         {
-            if (m_Wrapper.m_GlobalActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_BothActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IGlobalActions instance)
+        public void SetCallbacks(IBothActions instance)
         {
-            foreach (var item in m_Wrapper.m_GlobalActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_BothActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_GlobalActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_BothActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public GlobalActions @Global => new GlobalActions(this);
+    public BothActions @Both => new BothActions(this);
     public interface ISolaraActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -720,7 +720,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
     }
-    public interface IGlobalActions
+    public interface IBothActions
     {
         void OnSwap(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);

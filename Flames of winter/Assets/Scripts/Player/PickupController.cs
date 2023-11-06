@@ -8,7 +8,7 @@ public class PickupController : MonoBehaviour
     private GameObject heldObject;
     private Rigidbody heldObjectRB;
 
-    [SerializeField] private float pickupRange = 2.0f;
+    [SerializeField] private float pickupRange = 4.0f;
     [SerializeField] private float pickupForce = 10.0f;
     [SerializeField] private float dropDistance = 1.0f;
 

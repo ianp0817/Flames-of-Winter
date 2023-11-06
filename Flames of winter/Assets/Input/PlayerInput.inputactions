@@ -304,7 +304,7 @@
                 {
                     "name": "",
                     "id": "c3ee9f63-a6aa-4ef1-b0b0-5f428fcf6b15",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/e",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
@@ -337,7 +337,7 @@
             ]
         },
         {
-            "name": "Global",
+            "name": "Both",
             "id": "db7e4932-f75b-46f9-bd85-a273768483ae",
             "actions": [
                 {

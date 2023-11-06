@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerInput.SolaraActions solara;
     private PlayerInput.BobActions bob;
-    private PlayerInput.GlobalActions global;
+    private PlayerInput.BothActions both;
     [SerializeField] private GameObject solaraObject;
     [SerializeField] private GameObject solaraCamera;
     [SerializeField] private GameObject bobObject;
@@ -40,7 +40,7 @@ public class InputManager : MonoBehaviour
         playerInput = new PlayerInput();
         solara = playerInput.Solara;
         bob = playerInput.Bob;
-        global = playerInput.Global;
+        both = playerInput.Both;
 
         solaraExists = solaraObject != null;
         bobExists = bobObject != null;
@@ -74,8 +74,8 @@ public class InputManager : MonoBehaviour
 
         if (solaraExists && bobExists)
         {
-            global.Swap.performed += ctx => Swap();
-            global.Reset.performed += ctx => Reset();
+            both.Swap.performed += ctx => Swap();
+            both.Reset.performed += ctx => Reset();
             solara.Point.performed += ctx => Point();
         }
 
@@ -97,7 +97,7 @@ public class InputManager : MonoBehaviour
     {
         transitionHandler.TransitionIn(() =>
         {
-            global.Enable();
+            both.Enable();
             if (player == Player.Solara)
                 solara.Enable();
             else
@@ -190,7 +190,7 @@ public class InputManager : MonoBehaviour
 
     private void OnDisable()
     {
-        global.Disable();
+        both.Disable();
         if (player == Player.Solara)
             solara.Disable();
         else
