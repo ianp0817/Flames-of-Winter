@@ -244,12 +244,16 @@ PrefabInstance:
       objectReference: {fileID: 1408624839}
     - target: {fileID: 7038278038098169130, guid: bab0b8d6faa53114896cc5ed32c48381, type: 3}
       propertyPath: targets.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7038278038098169130, guid: bab0b8d6faa53114896cc5ed32c48381, type: 3}
       propertyPath: targets.Array.data[0]
       value: 
       objectReference: {fileID: 1408624839}
+    - target: {fileID: 7038278038098169130, guid: bab0b8d6faa53114896cc5ed32c48381, type: 3}
+      propertyPath: targets.Array.data[1]
+      value: 
+      objectReference: {fileID: 1797485566}
     - target: {fileID: 8253108859816670954, guid: bab0b8d6faa53114896cc5ed32c48381, type: 3}
       propertyPath: m_Name
       value: SolaraButton
@@ -881,7 +885,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 821450426530853929, guid: a8018ab9ae6c5404da73c9d2ded4117b, type: 3}
       propertyPath: m_Name
-      value: Bob Door (1)
+      value: Bob Door
       objectReference: {fileID: 0}
     - target: {fileID: 3414479153630926721, guid: a8018ab9ae6c5404da73c9d2ded4117b, type: 3}
       propertyPath: m_LocalScale.x
@@ -1095,7 +1099,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 821450426530853929, guid: a8018ab9ae6c5404da73c9d2ded4117b, type: 3}
       propertyPath: m_Name
-      value: Bob Door
+      value: Both Door
       objectReference: {fileID: 0}
     - target: {fileID: 3414479153630926721, guid: a8018ab9ae6c5404da73c9d2ded4117b, type: 3}
       propertyPath: m_LocalScale.x

@@ -31,7 +31,7 @@ public class SolaraButton : Interactable
         this.interactor = interactor;
         interactPosition = interactor.transform.position;
         foreach (Powerable target in targets)
-            target.SetPower(true);
+            target.IncreasePower();
 
         button.SetTranslationOffset(0, Vector3.zero);
     }
@@ -40,7 +40,7 @@ public class SolaraButton : Interactable
     {
         interactor = null;
         foreach (Powerable target in targets)
-            target.SetPower(false);
+            target.DecreasePower();
 
         button.SetTranslationOffset(0, defaultPos);
     }

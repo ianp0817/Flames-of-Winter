@@ -5,11 +5,16 @@ using UnityEngine;
 public class WaterController : MonoBehaviour
 {
     [SerializeField] IceController iceController;
-    private bool containsBob = false;
+    private BobShoot bobShoot;
+
+    private void Awake()
+    {
+        bobShoot = FindObjectOfType<BobShoot>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!containsBob && collision.gameObject.CompareTag("BobProjectile"))
+        if (collision.gameObject.CompareTag("BobProjectile"))
         {
             iceController.gameObject.SetActive(true);
             gameObject.SetActive(false);
@@ -19,12 +24,12 @@ public class WaterController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bob"))
-            containsBob = true;
+            bobShoot.Block();
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Bob"))
-            containsBob = false;
+            bobShoot.Unblock();
     }
 }
