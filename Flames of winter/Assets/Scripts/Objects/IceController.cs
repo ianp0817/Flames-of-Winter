@@ -10,7 +10,7 @@ public class IceController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SolaraProjectile"))
         {
-            Destroy(transform.parent.gameObject);
+            Destroy(transform.gameObject);
         }
     }
 }
