@@ -7,6 +7,7 @@ public class PickupController : MonoBehaviour
     [SerializeField] private Transform holdTarget;
     private GameObject heldObject;
     private Rigidbody heldObjectRB;
+    private bool pickedUp = false;
 
     [SerializeField] private float pickupRange = 4.0f;
     [SerializeField] private float pickupForce = 10.0f;
@@ -44,6 +45,7 @@ public class PickupController : MonoBehaviour
 
             heldObject.transform.parent = null;
             heldObject = null;
+            pickedUp = false;
         }
     }
 
@@ -52,11 +54,18 @@ public class PickupController : MonoBehaviour
         if (heldObject && Vector3.Distance(heldObject.transform.position, holdTarget.position) > 0.1f)
         {
             Vector3 moveDirection = holdTarget.position - heldObject.transform.position;
+            bool drop = moveDirection.magnitude > dropDistance;
 
-            if (moveDirection.magnitude >= dropDistance)
+            Vector3 AB = holdTarget.position - transform.position;
+            if (drop && (pickedUp || (transform.position + Vector3.Dot(heldObjectRB.position - transform.position, AB)
+                / Vector3.Dot(AB, AB) * AB - heldObjectRB.position).magnitude > dropDistance))
                 Drop();
             else
+            {
                 heldObjectRB.AddForce(moveDirection * pickupForce - heldObjectRB.GetAccumulatedForce());
+                if (!pickedUp && !drop)
+                    pickedUp = true;
+            }
         }
     }
 }
