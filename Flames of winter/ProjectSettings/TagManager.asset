@@ -10,6 +10,7 @@ TagManager:
   - BobInteractable
   - SolaraProjectile
   - BobProjectile
+  - Energy
   layers:
   - Default
   - TransparentFX
