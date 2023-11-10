@@ -1070,14 +1070,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3469759777967181549, guid: 49204e1fa9030dc42869f61c1f63db89, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3945427746257591890, guid: 49204e1fa9030dc42869f61c1f63db89, type: 3}
-      propertyPath: hasCannon
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4883239815158726811, guid: 49204e1fa9030dc42869f61c1f63db89, type: 3}
       propertyPath: m_Name
       value: Both
@@ -1121,18 +1113,6 @@ PrefabInstance:
     - target: {fileID: 5670290012131250945, guid: 49204e1fa9030dc42869f61c1f63db89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6550848544009228214, guid: 49204e1fa9030dc42869f61c1f63db89, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7165882161126874283, guid: 49204e1fa9030dc42869f61c1f63db89, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8209260215365977504, guid: 49204e1fa9030dc42869f61c1f63db89, type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
