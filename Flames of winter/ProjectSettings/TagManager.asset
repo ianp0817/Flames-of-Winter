@@ -11,6 +11,8 @@ TagManager:
   - SolaraProjectile
   - BobProjectile
   - Energy
+  - SolaraCannon
+  - BobCannon
   layers:
   - Default
   - TransparentFX

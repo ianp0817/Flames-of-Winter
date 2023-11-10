@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 513874555636883558}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalPosition: {x: 0, y: -0.38, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -389,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 5110337245824936747}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.12, z: 0}
+  m_LocalPosition: {x: 0, y: 0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdTarget: {fileID: 5810110313305407099}
-  pickupRange: 4
+  pickupRange: 2
   pickupForce: 200
   dropDistance: 1
 --- !u!114 &9195590986786470396
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb19541a837e4148a0737bca2d77f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCannon: 0
+  hasCannon: 1
   cooldown: 1
   power: 10
   offset: 0.25

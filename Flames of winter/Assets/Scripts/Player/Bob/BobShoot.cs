@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BobShoot : MonoBehaviour
 {
-    public bool hasCannon = false;
+    public bool hasCannon = true;
     [SerializeField] float cooldown = 1f;
     [SerializeField] float power = 5f;
     [SerializeField] float offset = 0f;
@@ -29,6 +29,21 @@ public class BobShoot : MonoBehaviour
             Rigidbody rb = proj.GetComponent<Rigidbody>();
             rb.velocity = power * transform.forward;
             cooldownRemaining = cooldown;
+        }
+    }
+
+    public void Pickup()
+    {
+        if (!hasCannon)
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 2))
+            {
+                if (hit.transform.CompareTag("BobCannon"))
+                {
+                    hasCannon = true;
+                    Destroy(hit.transform.gameObject);
+                }
+            }
         }
     }
 

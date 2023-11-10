@@ -30,4 +30,19 @@ public class SolaraShoot : MonoBehaviour
             cooldownRemaining = cooldown;
         }
     }
+
+    public void Pickup()
+    {
+        if (!hasCannon)
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 2))
+            {
+                if (hit.transform.CompareTag("SolaraCannon"))
+                {
+                    hasCannon = true;
+                    Destroy(hit.transform.gameObject);
+                }
+            }
+        }
+    }
 }

@@ -55,6 +55,7 @@ public class InputManager : MonoBehaviour
 
             solara.Jump.performed += ctx => solaraMotor.Jump();
             solara.Interact.performed += ctx => solaraInteract.Interact();
+            solara.Interact.performed += ctx => solaraShoot.Pickup();
             solara.Shoot.performed += ctx => solaraShoot.Shoot();
         }
         if (bobExists)
@@ -68,6 +69,7 @@ public class InputManager : MonoBehaviour
             bobPickup = bobObject.GetComponentInChildren<PickupController>();
 
             bob.Interact.performed += ctx => bobInteract.Interact();
+            bob.Interact.performed += ctx => bobShoot.Pickup();
             bob.Shoot.performed += ctx => bobShoot.Shoot();
             bob.Grab.performed += ctx => bobPickup.Grab();
         }
