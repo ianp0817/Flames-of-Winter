@@ -45,6 +45,8 @@ public class InputManager : MonoBehaviour
         solaraExists = solaraObject != null;
         bobExists = bobObject != null;
 
+        both.Reset.performed += ctx => Reset();
+
         if (solaraExists)
         {
             solaraMotor = solaraObject.GetComponent<SolaraMotor>();
@@ -77,7 +79,6 @@ public class InputManager : MonoBehaviour
         if (solaraExists && bobExists)
         {
             both.Swap.performed += ctx => Swap();
-            both.Reset.performed += ctx => Reset();
             solara.Point.performed += ctx => Point();
         }
 
