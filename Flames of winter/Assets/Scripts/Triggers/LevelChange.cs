@@ -31,12 +31,12 @@ public class LevelChange : MonoBehaviour
         if (other.gameObject == solara)
         {
             containsSolara = true;
-            tryChange();
+            TryChange();
         }
         if (other.gameObject == bob)
         {
             containsBob = true;
-            tryChange();
+            TryChange();
         }
     }
 
@@ -48,10 +48,11 @@ public class LevelChange : MonoBehaviour
             containsBob = false;
     }
 
-    private void tryChange()
+    private void TryChange()
     {
         if ((!needsSolara || containsSolara) && (!needsBob || containsBob))
         {
+            (needsSolara ? solara.GetComponentInParent<InputManager>() : bob.GetComponentInParent<InputManager>()).Disable();
             transitionHandler.TransitionOut(() =>
                 SceneManager.LoadScene(targetScene)
             );
