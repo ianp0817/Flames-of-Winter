@@ -5,12 +5,6 @@ using UnityEngine;
 public class WaterController : MonoBehaviour
 {
     [SerializeField] IceController iceController;
-    private BobShoot bobShoot;
-
-    private void Awake()
-    {
-        bobShoot = FindObjectOfType<BobShoot>();
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -24,12 +18,12 @@ public class WaterController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bob"))
-            bobShoot.Block();
+            FindObjectOfType<BobShoot>().Block();
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Bob"))
-            bobShoot.Unblock();
+            FindObjectOfType<BobShoot>().Unblock();
     }
 }

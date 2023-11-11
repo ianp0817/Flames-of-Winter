@@ -100,11 +100,7 @@ public class InputManager : MonoBehaviour
     {
         transitionHandler.TransitionIn(() =>
         {
-            both.Enable();
-            if (player == Player.Solara)
-                solara.Enable();
-            else
-                bob.Enable();
+            Enable();
         });
     }
 
@@ -150,6 +146,7 @@ public class InputManager : MonoBehaviour
 
     public void Reset()
     {
+        Disable();
         transitionHandler.TransitionOut(() =>
             SceneManager.LoadScene(SceneManager.GetActiveScene().name)
         );
@@ -191,7 +188,16 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    public void Enable()
+    {
+        both.Enable();
+        if (player == Player.Solara)
+            solara.Enable();
+        else
+            bob.Enable();
+    }
+
+    public void Disable()
     {
         both.Disable();
         if (player == Player.Solara)
