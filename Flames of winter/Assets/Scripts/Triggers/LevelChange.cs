@@ -22,8 +22,8 @@ public class LevelChange : MonoBehaviour
         solara = GameObject.FindGameObjectWithTag("Solara");
         bob = GameObject.FindGameObjectWithTag("Bob");
 
-        needsSolara = solara != null;
-        needsBob = bob != null;
+        needsSolara = solara && solara.transform.parent && solara.transform.parent.CompareTag("Player");
+        needsBob = bob && bob.transform.parent && bob.transform.parent.CompareTag("Player");
     }
 
     private void OnTriggerEnter(Collider other)
