@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SolaraShoot : MonoBehaviour
 {
-    public bool hasCannon = true;
+    public bool hasCannon = false;
     [SerializeField] float cooldown = 1f;
     [SerializeField] float power = 5f;
     [SerializeField] float offset = 0f;
