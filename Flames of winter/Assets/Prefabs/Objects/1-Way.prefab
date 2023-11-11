@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4734517640696568010}
   - component: {fileID: 800614782821502286}
   - component: {fileID: 6216058962235883259}
-  - component: {fileID: 7826427454784378131}
   m_Layer: 2
   m_Name: Clear Top
   m_TagString: Untagged
@@ -107,33 +106,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1773428102 &7826427454784378131
-ParentConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631177043890463208}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 0.5, z: 0}
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_TranslationOffsets:
-  - {x: 0, y: 0.5, z: 0}
-  m_RotationOffsets:
-  - {x: 0, y: 0, z: 0}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 3428999715043827687}
-    weight: 1
 --- !u!1 &2885415256382244798
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +118,6 @@ GameObject:
   - component: {fileID: 5318569812778066016}
   - component: {fileID: 7328278983146355414}
   - component: {fileID: 3945969875185796009}
-  - component: {fileID: 4193651475958022757}
   m_Layer: 2
   m_Name: Clear Left
   m_TagString: Untagged
@@ -241,33 +212,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1773428102 &4193651475958022757
-ParentConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2885415256382244798}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0.5, y: 0, z: 0}
-  m_RotationAtRest: {x: 0, y: 0, z: -90}
-  m_TranslationOffsets:
-  - {x: 0.5, y: 0, z: 0}
-  m_RotationOffsets:
-  - {x: 0, y: 0, z: -90}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 3428999715043827687}
-    weight: 1
 --- !u!1 &4270122947679510475
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +224,6 @@ GameObject:
   - component: {fileID: 13982042986445650}
   - component: {fileID: 4684220334513054374}
   - component: {fileID: 979475038290512848}
-  - component: {fileID: 7637388436014898943}
   m_Layer: 0
   m_Name: Opaque Back
   m_TagString: Untagged
@@ -297,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 4270122947679510475}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.012500048}
+  m_LocalPosition: {x: -3.1044087e-10, y: 0, z: -0.01250005}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -375,33 +318,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1773428102 &7637388436014898943
-ParentConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4270122947679510475}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 0, z: -0.0125}
-  m_RotationAtRest: {x: -90, y: 0, z: 0}
-  m_TranslationOffsets:
-  - {x: 0, y: 0, z: -0.012500048}
-  m_RotationOffsets:
-  - {x: -89.980225, y: 0, z: 0}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 3428999715043827687}
-    weight: 1
 --- !u!1 &5173306179949339160
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +330,6 @@ GameObject:
   - component: {fileID: 7580922833997758586}
   - component: {fileID: 6647574792165817830}
   - component: {fileID: 6291663049988515573}
-  - component: {fileID: 1830894801889255823}
   m_Layer: 2
   m_Name: Clear Right
   m_TagString: Untagged
@@ -509,33 +424,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1773428102 &1830894801889255823
-ParentConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5173306179949339160}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: -0.5, y: 0, z: 0}
-  m_RotationAtRest: {x: 0, y: 0, z: 90}
-  m_TranslationOffsets:
-  - {x: -0.5, y: 0, z: 0}
-  m_RotationOffsets:
-  - {x: 0, y: 0, z: 90}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 3428999715043827687}
-    weight: 1
 --- !u!1 &5250464559187236822
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +436,6 @@ GameObject:
   - component: {fileID: 8595612915297023487}
   - component: {fileID: 5154788418037503060}
   - component: {fileID: 8944129509391419927}
-  - component: {fileID: 2274088423091845128}
   m_Layer: 2
   m_Name: Clear Bottom
   m_TagString: Untagged
@@ -643,33 +530,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1773428102 &2274088423091845128
-ParentConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5250464559187236822}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: -0.5, z: 0}
-  m_RotationAtRest: {x: 0, y: -180, z: -180}
-  m_TranslationOffsets:
-  - {x: 0, y: -0.5, z: 0}
-  m_RotationOffsets:
-  - {x: 0, y: 180, z: 180}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 3428999715043827687}
-    weight: 1
 --- !u!1 &6689163554127251547
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +542,6 @@ GameObject:
   - component: {fileID: 5042521744374662779}
   - component: {fileID: 5055767696565617464}
   - component: {fileID: 7263298750232700935}
-  - component: {fileID: 6325491004868367143}
   m_Layer: 2
   m_Name: Clear Front
   m_TagString: Untagged
@@ -699,7 +558,7 @@ Transform:
   m_GameObject: {fileID: 6689163554127251547}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.012500048}
+  m_LocalPosition: {x: 3.1044087e-10, y: 0, z: 0.01250005}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -777,33 +636,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1773428102 &6325491004868367143
-ParentConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6689163554127251547}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 0, z: 0.012500048}
-  m_RotationAtRest: {x: 90, y: 0, z: 0}
-  m_TranslationOffsets:
-  - {x: 0, y: 0, z: 0.012500048}
-  m_RotationOffsets:
-  - {x: 89.980225, y: 0, z: 0}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_Active: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 3428999715043827687}
-    weight: 1
 --- !u!1 &7871078639576507650
 GameObject:
   m_ObjectHideFlags: 0
