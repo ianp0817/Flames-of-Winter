@@ -2317,6 +2317,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 3339378873555468553, guid: 49204e1fa9030dc42869f61c1f63db89, type: 3}
+      propertyPath: m_StepOffset
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 3945427746257591890, guid: 49204e1fa9030dc42869f61c1f63db89, type: 3}
       propertyPath: hasCannon
       value: 0
