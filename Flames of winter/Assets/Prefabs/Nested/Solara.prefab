@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7d0be5152c3f8478a62d4c4cc1bad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   gravity: -17
   jumpHeight: 3
 --- !u!114 &329246143661677469
@@ -267,8 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2257204943566868292}
-  xSensitivity: 15
-  ySensitivity: 15
+  xSensitivity: 35
+  ySensitivity: 35
 --- !u!114 &6733530898665850587
 MonoBehaviour:
   m_ObjectHideFlags: 0
