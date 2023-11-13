@@ -35,7 +35,7 @@ public class SolaraShoot : MonoBehaviour
     {
         if (!hasCannon)
         {
-            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 2))
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 3))
             {
                 if (hit.transform.CompareTag("SolaraCannon"))
                 {

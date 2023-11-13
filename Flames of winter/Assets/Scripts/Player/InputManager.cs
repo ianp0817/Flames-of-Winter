@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
 
     private enum Player { Solara, Bob }
     [SerializeField] private Player player = Player.Solara;
+    [SerializeField] GameObject swapTooltip = null;
 
     private SolaraMotor solaraMotor;
     private SolaraLook solaraLook;
@@ -93,6 +94,9 @@ public class InputManager : MonoBehaviour
                 solaraCamera.SetActive(false);
         }
 
+        if (swapTooltip)
+            both.Swap.performed += Unlock;
+
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -100,7 +104,17 @@ public class InputManager : MonoBehaviour
     {
         transitionHandler.TransitionIn(() =>
         {
-            Enable();
+            if (!swapTooltip)
+            {
+                if (solaraExists || bobExists)
+                    Enable();
+                else
+                    Disable();
+            }
+            else
+            {
+                both.Enable();
+            }
         });
     }
 
@@ -162,29 +176,35 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Tell the player to move using the value from our movement action.
-        if (player == Player.Solara)
+        if (solaraExists || bobExists)
         {
-            solaraMotor.ProcessMove(solara.Movement.ReadValue<Vector2>());
-            if (bobExists && !bobPathfind.IsPathing())
-                bobMotor.ProcessMove(Vector2.zero);
-        }
-        else
-        {
-            bobMotor.ProcessMove(bob.Movement.ReadValue<Vector2>());
-            if (solaraExists)
-                solaraMotor.ProcessMove(Vector2.zero);
+            // Tell the player to move using the value from our movement action.
+            if (player == Player.Solara)
+            {
+                solaraMotor.ProcessMove(solara.Movement.ReadValue<Vector2>());
+                if (bobExists && !bobPathfind.IsPathing())
+                    bobMotor.ProcessMove(Vector2.zero);
+            }
+            else
+            {
+                bobMotor.ProcessMove(bob.Movement.ReadValue<Vector2>());
+                if (solaraExists)
+                    solaraMotor.ProcessMove(Vector2.zero);
+            }
         }
     }
 
     private void LateUpdate()
     {
-        if (player == Player.Solara)
-            solaraLook.ProcessLook(solara.Look.ReadValue<Vector2>());
-        else
+        if (solaraExists || bobExists)
         {
-            bobLook.ProcessLook(bob.Look.ReadValue<Vector2>());
-            bobPickup.ProcessHold();
+            if (player == Player.Solara)
+                solaraLook.ProcessLook(solara.Look.ReadValue<Vector2>());
+            else
+            {
+                bobLook.ProcessLook(bob.Look.ReadValue<Vector2>());
+                bobPickup.ProcessHold();
+            }
         }
     }
 
@@ -204,5 +224,16 @@ public class InputManager : MonoBehaviour
             solara.Disable();
         else
             bob.Disable();
+    }
+
+    private void Unlock(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            both.Swap.performed -= Unlock;
+            both.Disable();
+            Enable();
+            Destroy(swapTooltip);
+        }
     }
 }
