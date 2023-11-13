@@ -386,7 +386,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""d8bdac8d-d5f5-4031-8b44-9ad25aa91851"",
                     ""path"": ""<Keyboard>/f"",
-                    ""interactions"": ""SlowTap(duration=0.25)"",
+                    ""interactions"": ""Hold(duration=0.25)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Swap"",
