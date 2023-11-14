@@ -28,6 +28,7 @@ public class InputManager : MonoBehaviour
     private SolaraSwap solaraSwap;
     private SolaraInteract solaraInteract;
     private SolaraShoot solaraShoot;
+    private Outline solaraOutline;
     private BobMotor bobMotor;
     private BobLook bobLook;
     private BobSwap bobSwap;
@@ -35,6 +36,7 @@ public class InputManager : MonoBehaviour
     private BobInteract bobInteract;
     private BobShoot bobShoot;
     private PickupController bobPickup;
+    private Outline bobOutline;
 
     void Awake()
     {
@@ -55,6 +57,7 @@ public class InputManager : MonoBehaviour
             solaraSwap = solaraObject.GetComponent<SolaraSwap>();
             solaraInteract = solaraObject.GetComponentInChildren<SolaraInteract>();
             solaraShoot = solaraObject.GetComponentInChildren<SolaraShoot>();
+            solaraOutline = solaraObject.GetComponent<Outline>();
 
             solara.Jump.performed += ctx => solaraMotor.Jump();
             solara.Interact.performed += ctx => solaraInteract.Interact();
@@ -70,6 +73,7 @@ public class InputManager : MonoBehaviour
             bobInteract = bobObject.GetComponentInChildren<BobInteract>();
             bobShoot = bobObject.GetComponentInChildren<BobShoot>();
             bobPickup = bobObject.GetComponentInChildren<PickupController>();
+            bobOutline = bobObject.GetComponent<Outline>();
 
             bob.Interact.performed += ctx => bobInteract.Interact();
             bob.Interact.performed += ctx => bobShoot.Pickup();
@@ -87,11 +91,15 @@ public class InputManager : MonoBehaviour
         {
             if (bobExists)
                 bobCamera.SetActive(false);
+            if (solaraExists)
+                solaraOutline.enabled = false;
         }
         else
         {
             if (solaraExists)
                 solaraCamera.SetActive(false);
+            if (bobExists)
+                bobOutline.enabled = false;
         }
 
         if (swapTooltip)
@@ -130,18 +138,23 @@ public class InputManager : MonoBehaviour
             {
                 bobPathfind.StopPathing();
                 solaraCamera.SetActive(false);
+                bobObject.transform.rotation = Quaternion.LookRotation(new Vector3(
+                    solaraObject.transform.position.x - bobObject.transform.position.x, 0,
+                    solaraObject.transform.position.z - bobObject.transform.position.z).normalized, Vector3.up);
                 bobCamera.SetActive(true);
                 solara.Disable();
                 bob.Enable();
+                bobOutline.enabled = false;
+                solaraOutline.enabled = true;
                 player = Player.Bob;
             }
-            else if (result == SwapResult.Follow)
+            /*else if (result == SwapResult.Follow)
             {
                 if (bobPathfind.IsFollowing())
                     bobPathfind.StopPathing();
                 else
                     bobPathfind.FollowTarget(solaraObject.transform);
-            }
+            }*/
         }
         else
         {
@@ -150,9 +163,14 @@ public class InputManager : MonoBehaviour
             {
                 bobPickup.Drop();
                 bobCamera.SetActive(false);
+                solaraObject.transform.rotation = Quaternion.LookRotation(new Vector3(
+                    bobObject.transform.position.x - solaraObject.transform.position.x, 0,
+                    bobObject.transform.position.z - solaraObject.transform.position.z).normalized, Vector3.up);
                 solaraCamera.SetActive(true);
                 bob.Disable();
                 solara.Enable();
+                solaraOutline.enabled = false;
+                bobOutline.enabled = true;
                 player = Player.Solara;
             }
         }

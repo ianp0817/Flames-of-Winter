@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 513874555636883558}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.38, z: 1.5}
+  m_LocalPosition: {x: 0, y: -0.38, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 710081421076102983}
   - component: {fileID: 2882313266774589695}
   - component: {fileID: 5014999858725725581}
+  - component: {fileID: 8411933147101048415}
   m_Layer: 8
   m_Name: Bob
   m_TagString: Bob
@@ -144,9 +145,9 @@ CharacterController:
   serializedVersion: 3
   m_Height: 1
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 60
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.03
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3182994769886142248
@@ -176,8 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 7229444878736688322}
-  xSensitivity: 25
-  ySensitivity: 25
+  xSensitivity: 10
+  ySensitivity: 10
 --- !u!114 &5171181225302427294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +213,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 0
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &710081421076102983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +276,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &8411933147101048415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181171425951476336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.7490196, b: 1, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5110337245824936747
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,9 +403,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdTarget: {fileID: 5810110313305407099}
-  pickupRange: 2
+  pickupRange: 3
   pickupForce: 200
   dropDistance: 1
+  minDistance: 1.25
 --- !u!114 &9195590986786470396
 MonoBehaviour:
   m_ObjectHideFlags: 0
