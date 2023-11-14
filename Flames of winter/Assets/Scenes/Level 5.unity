@@ -15162,6 +15162,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 114240272}
     - target: {fileID: 897418197935008066, guid: f31acccfedfb3db4ba06c5c821e948f1, type: 3}
+      propertyPath: nullCheck
+      value: 
+      objectReference: {fileID: 1475667068}
+    - target: {fileID: 897418197935008066, guid: f31acccfedfb3db4ba06c5c821e948f1, type: 3}
       propertyPath: requireCannon
       value: 1
       objectReference: {fileID: 0}
@@ -19158,6 +19162,11 @@ PrefabInstance:
 --- !u!4 &1475667067 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8137739941040010908, guid: 3f25c792ec3708d4f8a8a74e05508425, type: 3}
+  m_PrefabInstance: {fileID: 1475667066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1475667068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7138176297402201004, guid: 3f25c792ec3708d4f8a8a74e05508425, type: 3}
   m_PrefabInstance: {fileID: 1475667066}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1489060243

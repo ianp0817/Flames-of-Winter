@@ -12,6 +12,7 @@ public class PickupController : MonoBehaviour
     [SerializeField] private float pickupRange = 4.0f;
     [SerializeField] private float pickupForce = 10.0f;
     [SerializeField] private float dropDistance = 1.0f;
+    [SerializeField] private float minDistance = 1.25f;
 
     public void Grab()
     {
@@ -20,7 +21,7 @@ public class PickupController : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hit, pickupRange))
             {
                 GameObject hitObject = hit.transform.gameObject;
-                if (heldObjectRB = hitObject.GetComponent<Rigidbody>())
+                if ((heldObjectRB = hitObject.GetComponent<Rigidbody>()) && (heldObjectRB.position - transform.parent.position).magnitude > minDistance)
                 {
                     heldObjectRB.useGravity = false;
                     heldObjectRB.drag = 10;
@@ -54,11 +55,13 @@ public class PickupController : MonoBehaviour
         if (heldObject && Vector3.Distance(heldObject.transform.position, holdTarget.position) > 0.1f)
         {
             Vector3 moveDirection = holdTarget.position - heldObject.transform.position;
+            Vector3 difference = heldObjectRB.position - transform.parent.position;
             bool drop = moveDirection.magnitude > dropDistance;
 
             Vector3 AB = holdTarget.position - transform.position;
-            if (drop && (pickedUp || (transform.position + Vector3.Dot(heldObjectRB.position - transform.position, AB)
-                / Vector3.Dot(AB, AB) * AB - heldObjectRB.position).magnitude > dropDistance))
+            if ((drop && (pickedUp || (transform.position + Vector3.Dot(difference, AB) /
+                Vector3.Dot(AB, AB) * AB - heldObjectRB.position).magnitude > dropDistance))
+                || difference.magnitude <= minDistance)
                 Drop();
             else
             {

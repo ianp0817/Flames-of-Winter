@@ -6,7 +6,7 @@ public class UIHandler : MonoBehaviour
 {
     [SerializeField] CanvasRenderer UIElement;
     [SerializeField] List<string> allowedTags;
-    [SerializeField] bool requireCannon;
+    [SerializeField] GameObject nullCheck;
     [SerializeField] float displayDuration = 5f;
     [SerializeField] float fadeDuration = 0.5f;
 
@@ -28,7 +28,7 @@ public class UIHandler : MonoBehaviour
                     SolaraShoot solaraShoot = other.GetComponentInChildren<SolaraShoot>();
                     BobShoot bobShoot = other.GetComponentInChildren<BobShoot>();
 
-                    if (!requireCannon || (solaraShoot ? solaraShoot.hasCannon : (bobShoot ? bobShoot.hasCannon : false)))
+                    if (!nullCheck || (solaraShoot ? solaraShoot.hasCannon : (bobShoot ? bobShoot.hasCannon : false)))
                     {
                         canTrigger = false;
                         StartCoroutine(DisplayUI());

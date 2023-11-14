@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ba23b2111068f64ebec9cf09acc899d, type: 2}
+  - {fileID: 2100000, guid: 1c321be89d5ef9943b602b1f8ab03743, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -292,4 +292,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6118687564609278954}
   moveThreshold: 0.1
-  target: {fileID: 0}
+  targets: []
