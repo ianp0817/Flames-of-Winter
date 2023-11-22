@@ -48,10 +48,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solaraObject: {fileID: 8519486126049108219}
   solaraCamera: {fileID: 1452744148229445497}
+  solaraModel: {fileID: 8339363847982372760}
   bobObject: {fileID: 0}
   bobCamera: {fileID: 0}
+  bobModel: {fileID: 0}
   transitionHandler: {fileID: 3005482056310115417}
   player: 0
+  swapTooltip: {fileID: 0}
 --- !u!1001 &4029801315276455306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,6 +115,11 @@ PrefabInstance:
 --- !u!1 &1452744148229445497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2577631189981080307, guid: 7c5231f2ee4267e4cbe3fffc4aa8a75e, type: 3}
+  m_PrefabInstance: {fileID: 4029801315276455306}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8339363847982372760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4924657392287558162, guid: 7c5231f2ee4267e4cbe3fffc4aa8a75e, type: 3}
   m_PrefabInstance: {fileID: 4029801315276455306}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8519486126049108219 stripped

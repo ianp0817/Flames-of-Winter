@@ -12,8 +12,10 @@ public class InputManager : MonoBehaviour
     private PlayerInput.BothActions both;
     [SerializeField] private GameObject solaraObject;
     [SerializeField] private GameObject solaraCamera;
+    [SerializeField] private GameObject solaraModel;
     [SerializeField] private GameObject bobObject;
     [SerializeField] private GameObject bobCamera;
+    [SerializeField] private GameObject bobModel;
     private bool solaraExists;
     private bool bobExists;
 
@@ -93,6 +95,8 @@ public class InputManager : MonoBehaviour
                 bobCamera.SetActive(false);
             if (solaraExists)
                 solaraOutline.enabled = false;
+            if (solaraModel)
+                solaraModel.SetActive(false);
         }
         else
         {
@@ -100,6 +104,8 @@ public class InputManager : MonoBehaviour
                 solaraCamera.SetActive(false);
             if (bobExists)
                 bobOutline.enabled = false;
+            if (bobModel)
+                bobModel.SetActive(false);
         }
 
         if (swapTooltip)
@@ -146,6 +152,10 @@ public class InputManager : MonoBehaviour
                 bob.Enable();
                 bobOutline.enabled = false;
                 solaraOutline.enabled = true;
+                if (bobModel)
+                    bobModel.SetActive(false);
+                if (solaraModel)
+                    solaraModel.SetActive(true);
                 player = Player.Bob;
             }
             /*else if (result == SwapResult.Follow)
@@ -171,6 +181,10 @@ public class InputManager : MonoBehaviour
                 solara.Enable();
                 solaraOutline.enabled = false;
                 bobOutline.enabled = true;
+                if (solaraModel)
+                    solaraModel.SetActive(false);
+                if (bobModel)
+                    bobModel.SetActive(true);
                 player = Player.Solara;
             }
         }
@@ -186,9 +200,9 @@ public class InputManager : MonoBehaviour
 
     private void Point()
     {
-        bool success = solaraSwap.Point(out Vector3 location);
+        bool success = solaraSwap.Point(out Vector3 ping);
         if (success)
-            bobPathfind.PathTo(location);
+            bobPathfind.PathTo(ping);
     }
 
     // Update is called once per frame
