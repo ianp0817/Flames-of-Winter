@@ -262,7 +262,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""id"": ""d104bacb-45da-4b27-9c16-dec6a3807375"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=2)"",
+                    ""processors"": ""ScaleVector2"",
                     ""groups"": """",
                     ""action"": ""Look"",
                     ""isComposite"": true,

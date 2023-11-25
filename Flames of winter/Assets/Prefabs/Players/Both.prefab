@@ -49,10 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solaraObject: {fileID: 6429091622955522303}
   solaraCamera: {fileID: 4263462585099939709}
+  solaraModel: {fileID: 6681279741297422236}
   bobObject: {fileID: 6550848544009228214}
   bobCamera: {fileID: 3469759777967181549}
+  bobModel: {fileID: 144607372368904177}
   transitionHandler: {fileID: 1172387317128723979}
   player: 0
+  swapTooltip: {fileID: 0}
 --- !u!1001 &1796735354003703182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,6 +126,11 @@ Transform:
 --- !u!1 &6429091622955522303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4744526317606854001, guid: 7c5231f2ee4267e4cbe3fffc4aa8a75e, type: 3}
+  m_PrefabInstance: {fileID: 1796735354003703182}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6681279741297422236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4924657392287558162, guid: 7c5231f2ee4267e4cbe3fffc4aa8a75e, type: 3}
   m_PrefabInstance: {fileID: 1796735354003703182}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7903968679169801401
@@ -255,6 +263,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c6752ac2e885394fa9e08665494de69, type: 3}
+--- !u!1 &144607372368904177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8416452718642108983, guid: 4c6752ac2e885394fa9e08665494de69, type: 3}
+  m_PrefabInstance: {fileID: 8560358297599468998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1016805514226938483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8705717281241192373, guid: 4c6752ac2e885394fa9e08665494de69, type: 3}
