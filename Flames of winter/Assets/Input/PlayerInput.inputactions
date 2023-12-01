@@ -375,10 +375,38 @@
                     "name": "",
                     "id": "7dec064f-e616-42ef-9dd3-b3b39bc43172",
                     "path": "<Keyboard>/r",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Cutscene",
+            "id": "5422ae59-d1d4-41bb-ae27-5ae5d84be8e9",
+            "actions": [
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "df452079-37fe-4efe-a759-c48e03b2e384",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6c7203d8-824c-4c06-a07d-163faf17d60e",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
