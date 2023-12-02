@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class VideoTransition : MonoBehaviour
 {
+    private PlayerInput playerInput;
+    private PlayerInput.CutsceneActions cutscene;
+
     [SerializeField] string targetScene;
     private VideoPlayer videoPlayer;
 
@@ -14,10 +17,16 @@ public class VideoTransition : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.loopPointReached += Transition;
+
+        playerInput = new PlayerInput();
+        cutscene = playerInput.Cutscene;
+        cutscene.Skip.performed += ctx => Transition(videoPlayer);
+        cutscene.Enable();
     }
 
     private void Transition(VideoPlayer vp)
     {
+        cutscene.Disable();
         SceneManager.LoadScene(targetScene);
     }
 }
