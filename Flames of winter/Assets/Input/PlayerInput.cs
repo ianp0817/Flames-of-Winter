@@ -418,6 +418,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Tooltip"",
+                    ""type"": ""Button"",
+                    ""id"": ""b2ac355c-394a-4b2b-9fcc-e01c4368b07b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -429,6 +438,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f472c31d-c06f-4af2-bbf9-5308b69a60e7"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tooltip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -459,6 +479,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Cutscene
         m_Cutscene = asset.FindActionMap("Cutscene", throwIfNotFound: true);
         m_Cutscene_Skip = m_Cutscene.FindAction("Skip", throwIfNotFound: true);
+        m_Cutscene_Tooltip = m_Cutscene.FindAction("Tooltip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -739,11 +760,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Cutscene;
     private List<ICutsceneActions> m_CutsceneActionsCallbackInterfaces = new List<ICutsceneActions>();
     private readonly InputAction m_Cutscene_Skip;
+    private readonly InputAction m_Cutscene_Tooltip;
     public struct CutsceneActions
     {
         private @PlayerInput m_Wrapper;
         public CutsceneActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Skip => m_Wrapper.m_Cutscene_Skip;
+        public InputAction @Tooltip => m_Wrapper.m_Cutscene_Tooltip;
         public InputActionMap Get() { return m_Wrapper.m_Cutscene; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -756,6 +779,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Skip.started += instance.OnSkip;
             @Skip.performed += instance.OnSkip;
             @Skip.canceled += instance.OnSkip;
+            @Tooltip.started += instance.OnTooltip;
+            @Tooltip.performed += instance.OnTooltip;
+            @Tooltip.canceled += instance.OnTooltip;
         }
 
         private void UnregisterCallbacks(ICutsceneActions instance)
@@ -763,6 +789,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Skip.started -= instance.OnSkip;
             @Skip.performed -= instance.OnSkip;
             @Skip.canceled -= instance.OnSkip;
+            @Tooltip.started -= instance.OnTooltip;
+            @Tooltip.performed -= instance.OnTooltip;
+            @Tooltip.canceled -= instance.OnTooltip;
         }
 
         public void RemoveCallbacks(ICutsceneActions instance)
@@ -805,5 +834,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface ICutsceneActions
     {
         void OnSkip(InputAction.CallbackContext context);
+        void OnTooltip(InputAction.CallbackContext context);
     }
 }
