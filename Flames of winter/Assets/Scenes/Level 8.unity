@@ -52670,6 +52670,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6211601765804957981, guid: 61ec60908b9b0724c99732190ccdf6ce, type: 3}
+      propertyPath: coreFragments
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5459578780163635492, guid: 61ec60908b9b0724c99732190ccdf6ce, type: 3}
       propertyPath: m_LocalScale.x
       value: 3

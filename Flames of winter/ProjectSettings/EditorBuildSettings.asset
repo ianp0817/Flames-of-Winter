@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 8.unity
     guid: 556b171b27799354e8f34a0995d07469
   - enabled: 1
+    path: Assets/Scenes/SecretEnding.unity
+    guid: c70d8f99430961d47a2ec765403db006
+  - enabled: 1
     path: Assets/Scenes/SacrificeBob.unity
     guid: e0a8ada8d6f1e5948b22b9d225ff7ef2
   - enabled: 1

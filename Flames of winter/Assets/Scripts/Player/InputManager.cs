@@ -30,6 +30,7 @@ public class InputManager : MonoBehaviour
     private SolaraSwap solaraSwap;
     private SolaraInteract solaraInteract;
     private SolaraShoot solaraShoot;
+    private FCPickupHandler solaraFC;
     private Outline solaraOutline;
     private BobMotor bobMotor;
     private BobLook bobLook;
@@ -38,6 +39,7 @@ public class InputManager : MonoBehaviour
     private BobInteract bobInteract;
     private BobShoot bobShoot;
     private PickupController bobPickup;
+    private FCPickupHandler bobFC;
     private Outline bobOutline;
 
     void Awake()
@@ -59,11 +61,13 @@ public class InputManager : MonoBehaviour
             solaraSwap = solaraObject.GetComponent<SolaraSwap>();
             solaraInteract = solaraObject.GetComponentInChildren<SolaraInteract>();
             solaraShoot = solaraObject.GetComponentInChildren<SolaraShoot>();
+            solaraFC = solaraObject.GetComponentInChildren<FCPickupHandler>();
             solaraOutline = solaraObject.GetComponent<Outline>();
 
             solara.Jump.performed += ctx => solaraMotor.Jump();
             solara.Interact.performed += ctx => solaraInteract.Interact();
             solara.Interact.performed += ctx => solaraShoot.Pickup();
+            solara.Interact.performed += ctx => solaraFC.Pickup();
             solara.Shoot.performed += ctx => solaraShoot.Shoot();
         }
         if (bobExists)
@@ -75,10 +79,12 @@ public class InputManager : MonoBehaviour
             bobInteract = bobObject.GetComponentInChildren<BobInteract>();
             bobShoot = bobObject.GetComponentInChildren<BobShoot>();
             bobPickup = bobObject.GetComponentInChildren<PickupController>();
+            bobFC = bobObject.GetComponentInChildren<FCPickupHandler>();
             bobOutline = bobObject.GetComponent<Outline>();
 
             bob.Interact.performed += ctx => bobInteract.Interact();
             bob.Interact.performed += ctx => bobShoot.Pickup();
+            bob.Interact.performed += ctx => bobFC.Pickup();
             bob.Shoot.performed += ctx => bobShoot.Shoot();
             bob.Grab.performed += ctx => bobPickup.Grab();
         }
