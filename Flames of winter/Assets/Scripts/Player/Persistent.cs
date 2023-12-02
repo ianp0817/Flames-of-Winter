@@ -18,7 +18,7 @@ public class Persistent : MonoBehaviour
 
     private SaveData data;
 
-    public static int CFBits { get { return Instance.data.coreFragmentBitField; } set { Instance.data.coreFragmentBitField = value; } }
+    public static int FCBits { get { return Instance.data.coreFragmentBitField; } set { Instance.data.coreFragmentBitField = value; } }
     public static int LvlIdx { get { return Instance.data.continueLevelIndex; } set { Instance.data.continueLevelIndex = value; } }
 
     public static void ClearData()

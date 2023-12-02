@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class EndTriggerHandler : MonoBehaviour
 {
+    [SerializeField]
+    private int coreFragments;
+    private const string secretEnding = "SecretEnding";
     private const string sacrificeSolara = "SacrificeSolara";
     private const string sacrificeBob = "SacrificeBob";
 
@@ -17,7 +20,13 @@ public class EndTriggerHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Solara"))
+        if (hasAllFragments())
+        {
+            transitionHandler.TransitionOut(() =>
+                SceneManager.LoadScene(secretEnding)
+            );
+        }
+        else if (other.CompareTag("Solara"))
         {
             transitionHandler.TransitionOut(() =>
                 SceneManager.LoadScene(sacrificeSolara)
@@ -28,5 +37,19 @@ public class EndTriggerHandler : MonoBehaviour
                 SceneManager.LoadScene(sacrificeBob)
             );
         }
+    }
+
+    private bool hasAllFragments()
+    {
+        int fragmentBitField = Persistent.FCBits;
+        int fragments = 0;
+
+        while (fragmentBitField != 0)
+        {
+            fragments += fragmentBitField & 1;
+            fragmentBitField >>= 1;
+        }
+
+        return fragments >= coreFragments;
     }
 }

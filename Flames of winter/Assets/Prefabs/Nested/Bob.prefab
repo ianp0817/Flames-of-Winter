@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 2245266386860816896}
   - component: {fileID: 9195590986786470396}
   - component: {fileID: 4615196922009664404}
+  - component: {fileID: 651228622615963335}
   m_Layer: 8
   m_Name: Bob Camera
   m_TagString: MainCamera
@@ -388,6 +389,18 @@ MonoBehaviour:
   offset: 0.5
   projectilePrefab: {fileID: 4429720465680649880, guid: 709dd5fbbc6c32343a8983621b513bbf, type: 3}
   bob: {fileID: 3181171425951476336}
+--- !u!114 &651228622615963335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110337245824936747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e99833250b35740a51d3887981ae46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8650384599496894310
 PrefabInstance:
   m_ObjectHideFlags: 0

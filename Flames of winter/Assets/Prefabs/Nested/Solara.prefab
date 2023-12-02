@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3704861544665757500}
   - component: {fileID: 6781383430816388598}
   - component: {fileID: 1976879577643467348}
+  - component: {fileID: 6870675036728127883}
   m_Layer: 7
   m_Name: Solara Camera
   m_TagString: MainCamera
@@ -125,6 +126,18 @@ MonoBehaviour:
   offset: 0.25
   projectilePrefab: {fileID: 4429720465680649880, guid: 299a1032033a43f4a86a1ba6630ceaff, type: 3}
   solara: {fileID: 4744526317606854001}
+--- !u!114 &6870675036728127883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577631189981080307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e99833250b35740a51d3887981ae46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4744526317606854001
 GameObject:
   m_ObjectHideFlags: 0
