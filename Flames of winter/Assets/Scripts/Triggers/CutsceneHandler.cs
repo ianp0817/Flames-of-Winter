@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class CutsceneHandler : MonoBehaviour
 {
     private PlayerInput playerInput;
     private PlayerInput.CutsceneActions cutscene;
+    private PlayerInput.GlobalActions global;
 
     [SerializeField] CanvasRenderer UIElement;
     [SerializeField] float displayDuration = 5f;
@@ -17,6 +19,8 @@ public class CutsceneHandler : MonoBehaviour
 
     [SerializeField] string targetScene;
     private VideoPlayer videoPlayer;
+
+    [SerializeField] GameObject pauseMenu;
 
     private void Start()
     {
@@ -29,6 +33,13 @@ public class CutsceneHandler : MonoBehaviour
         cutscene.Skip.performed += ctx => Transition(videoPlayer);
         cutscene.Tooltip.performed += DisplayTooltip;
         cutscene.Enable();
+
+        global = playerInput.Global;
+        SceneManager.sceneUnloaded += (scene) => {
+            ClearPause();
+        };
+        global.Pause.performed += Pause;
+        global.Enable();
 
         UIElement.SetAlpha(0);
     }
@@ -75,5 +86,39 @@ public class CutsceneHandler : MonoBehaviour
 
         UIElement.SetAlpha(0);
         skipTooltip = false;
+    }
+
+    public void Enable()
+    {
+        cutscene.Enable();
+    }
+
+    public void Disable()
+    {
+        cutscene.Disable();
+    }
+
+    private void Pause(InputAction.CallbackContext ctx)
+    {
+        EventSystem eventSystem = FindObjectOfType<EventSystem>();
+        if (!eventSystem)
+        {
+            Disable();
+            Time.timeScale = 0;
+            Instantiate(pauseMenu);
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Enable();
+            Time.timeScale = 1;
+            Destroy(FindObjectOfType<EventSystem>().transform.parent.gameObject);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+
+    public void ClearPause()
+    {
+        global.Pause.performed -= Pause;
     }
 }

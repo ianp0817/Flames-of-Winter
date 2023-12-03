@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: 94cd6a6dd8a10c7479a25ee0e3459780, type: 3}
+    - target: {fileID: 7432800154642523243, guid: a8a731afd5824f74aadceb8276d7d4c6, type: 3}
+      propertyPath: m_TargetAudioSources.Array.data[0]
+      value: 
+      objectReference: {fileID: 5650340325928053470}
     - target: {fileID: 8346203231789163425, guid: a8a731afd5824f74aadceb8276d7d4c6, type: 3}
       propertyPath: m_Name
       value: Cutscene
@@ -184,6 +188,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a731afd5824f74aadceb8276d7d4c6, type: 3}
+--- !u!82 &5650340325928053470 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4949984581930410596, guid: a8a731afd5824f74aadceb8276d7d4c6, type: 3}
+  m_PrefabInstance: {fileID: 5650340325928053469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
