@@ -19,8 +19,34 @@ public class Persistent : MonoBehaviour
 
     private SaveData data;
 
-    public static int FCBits { get { return Instance.data.coreFragmentBitField; } set { Instance.data.coreFragmentBitField = value; } }
-    public static int LvlIdx { get { return Instance.data.continueLevelIndex; } set { Instance.data.continueLevelIndex = value; } }
+    public static int FCBits
+    {
+        get {
+#if (UNITY_EDITOR)
+            Init();
+#endif
+            return Instance.data.coreFragmentBitField; }
+        set {
+#if (UNITY_EDITOR)
+            Init();
+#endif
+            Instance.data.coreFragmentBitField = value; }
+    }
+    public static int LvlIdx
+    {
+        get
+        {
+#if (UNITY_EDITOR)
+            Init();
+#endif
+            return Instance.data.continueLevelIndex; }
+        set
+        {
+#if (UNITY_EDITOR)
+            Init();
+#endif
+            Instance.data.continueLevelIndex = value; }
+    }
 
     [System.Serializable]
     private class Settings

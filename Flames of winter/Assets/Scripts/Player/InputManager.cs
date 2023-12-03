@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class InputManager : MonoBehaviour
     private PlayerInput.SolaraActions solara;
     private PlayerInput.BobActions bob;
     private PlayerInput.BothActions both;
+    private PlayerInput.GlobalActions global;
     [SerializeField] private GameObject solaraObject;
     [SerializeField] private GameObject solaraCamera;
     [SerializeField] private GameObject solaraModel;
@@ -24,6 +26,7 @@ public class InputManager : MonoBehaviour
     private enum Player { Solara, Bob }
     [SerializeField] private Player player = Player.Solara;
     [SerializeField] GameObject swapTooltip = null;
+    [SerializeField] GameObject pauseMenu;
 
     private SolaraMotor solaraMotor;
     private SolaraLook solaraLook;
@@ -48,6 +51,12 @@ public class InputManager : MonoBehaviour
         solara = playerInput.Solara;
         bob = playerInput.Bob;
         both = playerInput.Both;
+        global = playerInput.Global;
+
+        SceneManager.sceneUnloaded += (scene) => {
+            ClearPause();
+        };
+        global.Pause.performed += Pause;
 
         solaraExists = solaraObject != null;
         bobExists = bobObject != null;
@@ -122,6 +131,7 @@ public class InputManager : MonoBehaviour
 
     private void Start()
     {
+        global.Enable();
         Persistent.LvlIdx = SceneManager.GetActiveScene().buildIndex;
         transitionHandler.TransitionIn(() =>
         {
@@ -249,11 +259,14 @@ public class InputManager : MonoBehaviour
 
     public void Enable()
     {
-        both.Enable();
-        if (player == Player.Solara)
-            solara.Enable();
-        else
-            bob.Enable();
+        if (!swapTooltip)
+        {
+            both.Enable();
+            if (player == Player.Solara)
+                solara.Enable();
+            else
+                bob.Enable();
+        }
     }
 
     public void Disable()
@@ -274,5 +287,28 @@ public class InputManager : MonoBehaviour
             Enable();
             Destroy(swapTooltip);
         }
+    }
+
+    private void Pause(InputAction.CallbackContext ctx)
+    {
+        EventSystem eventSystem = FindObjectOfType<EventSystem>();
+        if (!eventSystem)
+        {
+            Disable();
+            Time.timeScale = 0;
+            Instantiate(pauseMenu);
+            Cursor.lockState = CursorLockMode.None;
+        } else
+        {
+            Enable();
+            Time.timeScale = 1;
+            Destroy(FindObjectOfType<EventSystem>().transform.parent.gameObject);
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+
+    public void ClearPause()
+    {
+        global.Pause.performed -= Pause;
     }
 }

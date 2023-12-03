@@ -15,10 +15,10 @@ public class BobLook : MonoBehaviour
         float mouseX = input.x;
         float mouseY = input.y;
 
-        xRotation -= (mouseY * Time.fixedDeltaTime) * Persistent.SensitivityX;
+        xRotation -= (mouseY * Time.fixedDeltaTime) * Persistent.SensitivityY;
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
 
         cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.Rotate(Vector3.up * (mouseX * Time.fixedDeltaTime) * Persistent.SensitivityY);
+        transform.Rotate(Vector3.up * (mouseX * Time.fixedDeltaTime) * Persistent.SensitivityX);
     }
 }

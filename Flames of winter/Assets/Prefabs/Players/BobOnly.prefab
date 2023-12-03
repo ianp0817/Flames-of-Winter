@@ -55,6 +55,7 @@ MonoBehaviour:
   transitionHandler: {fileID: 6928096729859329693}
   player: 1
   swapTooltip: {fileID: 0}
+  pauseMenu: {fileID: 8784885692536647955, guid: 40401bf67ca6b1646871618d39b9e9de, type: 3}
 --- !u!1001 &2057555366417014059
 PrefabInstance:
   m_ObjectHideFlags: 0

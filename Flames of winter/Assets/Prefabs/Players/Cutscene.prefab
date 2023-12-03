@@ -422,7 +422,7 @@ VideoPlayer:
   m_RenderMode: 1
   m_AspectRatio: 3
   m_DataSource: 0
-  m_TimeUpdateMode: 2
+  m_TimeUpdateMode: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 1
   m_TargetAudioSources:
@@ -455,6 +455,7 @@ MonoBehaviour:
   displayDuration: 5
   fadeDuration: 0.5
   targetScene: Level 1
+  pauseMenu: {fileID: 8784885692536647955, guid: 40401bf67ca6b1646871618d39b9e9de, type: 3}
 --- !u!1 &8346203231789163425
 GameObject:
   m_ObjectHideFlags: 0
