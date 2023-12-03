@@ -122,11 +122,7 @@ public class InputManager : MonoBehaviour
 
     private void Start()
     {
-        try
-        {
-            Persistent.LvlIdx = SceneManager.GetActiveScene().buildIndex;
-        }
-        catch (System.NullReferenceException) { }
+        Persistent.LvlIdx = SceneManager.GetActiveScene().buildIndex;
         transitionHandler.TransitionIn(() =>
         {
             if (!swapTooltip)

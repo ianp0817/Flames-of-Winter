@@ -9,7 +9,7 @@ public class ButtonClick : MonoBehaviour, IPointerUpHandler
 {
     [SerializeField]
     private ButtonType button;
-    private enum ButtonType { None, NewGame, Continue, TitleSettings, Quit, Resume, MenuSettings, TitleScreen }
+    private enum ButtonType { None, NewGame, Continue, TitleSettings, Quit, Resume, MenuSettings, TitleScreen, Back }
 
     private void Start()
     {
@@ -35,7 +35,7 @@ public class ButtonClick : MonoBehaviour, IPointerUpHandler
                     SceneManager.LoadScene(Persistent.LvlIdx);
                     break;
                 case ButtonType.TitleSettings:
-
+                    SceneManager.LoadScene("SettingsMenu");
                     break;
                 case ButtonType.Quit:
                     Application.Quit();
@@ -43,8 +43,14 @@ public class ButtonClick : MonoBehaviour, IPointerUpHandler
                 case ButtonType.Resume:
 
                     break;
+                case ButtonType.MenuSettings:
+
+                    break;
                 case ButtonType.TitleScreen:
                     SceneManager.LoadScene(0);
+                    break;
+                case ButtonType.Back:
+
                     break;
             }
         }
