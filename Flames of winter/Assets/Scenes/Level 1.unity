@@ -2948,7 +2948,7 @@ GameObject:
   - component: {fileID: 622887433}
   - component: {fileID: 622887432}
   m_Layer: 0
-  m_Name: Cube (22)
+  m_Name: small ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
