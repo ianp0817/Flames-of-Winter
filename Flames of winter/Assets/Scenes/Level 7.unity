@@ -17579,7 +17579,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 386326983712667588, guid: b5ecb890d2e49954cbcb1c2fe920ba0d, type: 3}
       propertyPath: targets.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 386326983712667588, guid: b5ecb890d2e49954cbcb1c2fe920ba0d, type: 3}
       propertyPath: targets.Array.data[0]
@@ -17589,6 +17589,10 @@ PrefabInstance:
       propertyPath: targets.Array.data[1]
       value: 
       objectReference: {fileID: 1370072384}
+    - target: {fileID: 386326983712667588, guid: b5ecb890d2e49954cbcb1c2fe920ba0d, type: 3}
+      propertyPath: targets.Array.data[2]
+      value: 
+      objectReference: {fileID: 838586964}
     - target: {fileID: 2209786412367447227, guid: b5ecb890d2e49954cbcb1c2fe920ba0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -22523,7 +22527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 0
-  powerThreshold: 1
+  powerThreshold: 2
   panel: {fileID: 1599997259}
 --- !u!43 &859111843
 Mesh:
