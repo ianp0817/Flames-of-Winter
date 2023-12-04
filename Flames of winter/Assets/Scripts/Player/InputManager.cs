@@ -265,14 +265,11 @@ public class InputManager : MonoBehaviour
 
     public void Enable()
     {
-        if (!swapTooltip)
-        {
-            both.Enable();
-            if (player == Player.Solara)
-                solara.Enable();
-            else
-                bob.Enable();
-        }
+        both.Enable();
+        if (player == Player.Solara)
+            solara.Enable();
+        else
+            bob.Enable();
     }
 
     public void Disable()
