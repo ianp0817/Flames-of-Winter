@@ -60,7 +60,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &4600729910543214212
 MonoBehaviour:
@@ -160,7 +160,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_TargetDisplay: 0
 --- !u!114 &3417315774818476581
 MonoBehaviour:
@@ -240,6 +240,8 @@ MonoBehaviour:
   transitionHandler: {fileID: 3005482056310115417}
   player: 0
   swapTooltip: {fileID: 0}
+  pauseMenu: {fileID: 8784885692536647955, guid: 40401bf67ca6b1646871618d39b9e9de, type: 3}
+  bg: {fileID: 3601016406020709280}
 --- !u!1 &7893879827893212927
 GameObject:
   m_ObjectHideFlags: 0
