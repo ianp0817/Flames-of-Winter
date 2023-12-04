@@ -136,7 +136,10 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         global.Enable();
-        Persistent.LvlIdx = SceneManager.GetActiveScene().buildIndex;
+        if (solaraExists || bobExists)
+            Persistent.LvlIdx = SceneManager.GetActiveScene().buildIndex;
+        else
+            Persistent.LvlIdx = 0;
         transitionHandler.TransitionIn(() =>
         {
             if (!swapTooltip)
