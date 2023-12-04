@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -390, y: -30}
-  m_SizeDelta: {x: 330, y: 73}
+  m_SizeDelta: {x: 380, y: 73}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2149522292049758963
 CanvasRenderer:
@@ -110,7 +110,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -390, y: 170}
-  m_SizeDelta: {x: 200, y: 73}
+  m_SizeDelta: {x: 226, y: 49}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7376712202104934309
 CanvasRenderer:
@@ -549,7 +549,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -390, y: 70}
-  m_SizeDelta: {x: 332, y: 73}
+  m_SizeDelta: {x: 382, y: 73}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &4228099897177143523
 CanvasRenderer:
@@ -1140,6 +1140,10 @@ PrefabInstance:
       propertyPath: button
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 9220047744530852761, guid: ba84b3d3567eef8499e160b47e7cf13e, type: 3}
+      propertyPath: settingsMenu
+      value: 
+      objectReference: {fileID: 8784885692536647955}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

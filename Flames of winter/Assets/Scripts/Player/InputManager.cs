@@ -27,6 +27,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private Player player = Player.Solara;
     [SerializeField] GameObject swapTooltip = null;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] CanvasRenderer bg;
 
     private SolaraMotor solaraMotor;
     private SolaraLook solaraLook;
@@ -127,6 +128,9 @@ public class InputManager : MonoBehaviour
             both.Swap.performed += Unlock;
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        if (!(solaraExists || bobExists))
+            bg.SetAlpha(0);
     }
 
     private void Start()
@@ -140,7 +144,9 @@ public class InputManager : MonoBehaviour
                 if (solaraExists || bobExists)
                     Enable();
                 else
-                    Disable();
+                {
+                    StartCoroutine(FadeBG());
+                }
             }
             else
             {
@@ -310,5 +316,23 @@ public class InputManager : MonoBehaviour
     public void ClearPause()
     {
         global.Pause.performed -= Pause;
+    }
+
+    private IEnumerator FadeBG()
+    {
+        float startTime = Time.time;
+        float alpha;
+
+        while (Time.time - startTime < 2)
+            yield return null;
+
+        startTime = Time.time;
+        while ((alpha = Mathf.Lerp(0, 1, (Time.time - startTime) / 3)) < 1)
+        {
+            bg.SetAlpha(alpha);
+            yield return null;
+        }
+
+        bg.SetAlpha(1);
     }
 }
