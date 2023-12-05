@@ -65,7 +65,7 @@ public class BobPathfind : MonoBehaviour
         }
     }
 
-    public void FollowTarget(Transform target)
+    /*public void FollowTarget(Transform target)
     {
         StopPathing();
         if (agent.enabled)
@@ -78,11 +78,13 @@ public class BobPathfind : MonoBehaviour
         controller.enabled = false;
         agent.enabled = true;
         path = true;
-    }
+    }*/
 
     public void PathTo(Vector3 location)
     {
         StopPathing();
+        if (!NavMesh.SamplePosition(transform.position - new Vector3(0, 0.5f, 0), out _, 0.1f, NavMesh.AllAreas))
+            return;
         if (agent.enabled)
         {
             agent.velocity = Vector3.zero;
